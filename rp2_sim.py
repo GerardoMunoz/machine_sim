@@ -20,7 +20,7 @@ pins='pins'
 
 class PIO():
     OUT_LOW='PIO.OUT_LOW'
-    #daniel cortes, constructor sirve para llamar a la clase PIO
+    #daniel cortes, nos da un tiempo determinado de espera
 
 class StateMachine:
   def __init__(self, id_, program, freq=125000000, **kwargs):
