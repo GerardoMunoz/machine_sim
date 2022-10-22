@@ -1,6 +1,11 @@
 
 
 class Iloc:
+    '''
+    Oscar Poblador
+    Crea listas de selección con los elementos solicitados
+    uso: df2.iloc[3:5,0:2] =  titulo 1 : dato 3 y datos 4, titulo 2: dato 3 y dato 4
+    '''
     seleccion_titulo=[]
     seleccion_valor=[]
 
