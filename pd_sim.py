@@ -1,12 +1,13 @@
 seleccion_titulo=[]
 seleccion_valor=[]
-
-class DataFrame:
+class Iloc:
     def __init__(self,data,*args,**kwargs):
         self.data=data
-
     def __getitem__(self,i):
-        j=list(i)
+        try:
+            j=list(i)
+        except:
+            j=[0]
         l=0
         g=0
         if isinstance(j[0],slice):
@@ -23,14 +24,6 @@ class DataFrame:
                         print("Dato solicitado ",g,": ",valores[g])
 
                 l=l+1
-     
-            
-    #Realizar lecturas según su posición
-
-    def iloc(self,i):
-        
-        if isinstance(i,slice):
-            print("lo logramos")
         if isinstance (i,int):
             seleccion_titulo.clear()
             seleccion_valor.clear()
@@ -41,7 +34,18 @@ class DataFrame:
                 print ("\nTitulo: ", j)
                 seleccion_valor.append(valores[i])
                 print("Dato solicitado: ",valores[i])
+class DataFrame:
+    def __init__(self,data,*args,**kwargs):
+        self.data=data
+        self.iloc=Iloc(self.data)
 
+    def __getitem__(self,i):
+        print("hola")
+     
+            
+    #Realizar lecturas según su posición
+
+    
 
 def read_csv(arch,sep=','):
     arch = open(arch)
@@ -62,8 +66,8 @@ def read_csv(arch,sep=','):
     
 datos="hola.csv"       
 d=read_csv(datos)
-d.iloc(4)
-#d[3:5,0:2]
+d.iloc[4]
+d.iloc[3:5,0:2]
 print("\n")
 print(seleccion_titulo)
 print(seleccion_valor)
