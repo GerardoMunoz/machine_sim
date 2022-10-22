@@ -38,6 +38,12 @@ class Iloc:
                 self.seleccion_valor.append(valores[i])
                 print("Dato solicitado: ",valores[i])
 
+        if isinstance(j[0], list) & isinstance(j[1], list):
+            self.seleccion_titulo.clear()
+            self.seleccion_valor.clear()
+            titulos=self.data.keys(j[1])
+            print(titulos)
+
 class DataFrame:
     def __init__(self,data,*args,**kwargs):
         self.data=data

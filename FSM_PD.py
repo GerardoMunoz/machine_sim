@@ -1,11 +1,11 @@
-import pandas as pd1
+#import pandas as pd1
 import pd_sim as pd2
 
 nombre_archivo = 'FSM_dosUnosSeguidos.csv'
 
-data_frame1 = pd1.read_csv(nombre_archivo)
-data_frame2 = pd2.read_csv(nombre_archivo)
-
+#data_frame1 = pd1.read_csv(nombre_archivo)
+data_frame1 = pd2.read_csv(nombre_archivo)
+""""
 print(data_frame1)
 print(data_frame2)
 
@@ -31,13 +31,13 @@ print(data_frame1.describe())
 
 print()
 
-print(data_frame1.T)
+#print(data_frame1.T)
 print(data_frame2.T)
 #error print(data_frame2.T())
 
 print()
 
-print(data_frame1.sort_index(axis=1, ascending=False))
+#print(data_frame1.sort_index(axis=1, ascending=False))
 #error print(data_frame2.sort_index(axis=1, ascending=False))
 
 print()
@@ -103,7 +103,9 @@ data_frame1.iloc[3:5,0:2]
 print("\n")
 print(data_frame2.iloc.seleccion_titulo)
 print(data_frame2.iloc.seleccion_valor)
-       
+""" 
+
+data_frame1.iloc[[3,5],[0,2]]
 
 
 
