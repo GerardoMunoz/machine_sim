@@ -6,8 +6,13 @@ class Loc:
         self.data = data
     def __getitem__(self,n):
         lista=list(n)
-        
-        pass
+        n=0
+        print("datos de la fila: " +n)
+        if fila(d,slice):
+            d=x+1
+            print("datos de la fila: " +dat)
+            for dat in x
+            pass
 
 class DataFrame:
     def __init__(self, data, *args, **kwargs):
