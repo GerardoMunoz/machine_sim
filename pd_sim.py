@@ -81,15 +81,20 @@ class DataFrame:
         dat[0]
         return fila
     
-    def sort_index(  axis: Axis = 0, ascending: bool | Sequence[bool] = True)
+    def sort_index(axis, ascending)
         
-        cambios =0,1,2,3..
-        n = len(indice)
-        for i in range(n-1):       # <-- bucle padre
-            for j in range(n-1-i): # <-- bucle hijo
-                if indice[j] > indice[j+1]:
-                    indice[j], indice[j+1] = incice[j+1], indice[j]
-                    cambios
+        if ascendig ==true:
+            n = len(indice)
+            for i in range(n-1):       # <-- bucle padre
+                for j in range(n-1-i): # <-- bucle hijo
+                    if indice[j] > indice[j+1]:
+                        indice[j], indice[j+1] = incice[j+1], indice[j]
+        else
+            n = len(indice)
+            for i in range(n-1):       # <-- bucle padre
+                for j in range(n-1-i): # <-- bucle hijo
+                    if indice[j] > indice[j+1]:
+                        indice[j], indice[j+1] = incice[j+1], indice[j]            
         
     
     #DataFrame.sort_index()
