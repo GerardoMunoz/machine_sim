@@ -1,9 +1,15 @@
 seleccion_titulo=[]
 seleccion_valor=[]
 
+class Loc:
+    def __init__():
+        pass
+    def __getitem__():
+        pass
 class DataFrame:
     def __init__(self, data, *args, **kwargs):
         self.data = data
+        self.loc = Loc
 
     def __str__(self):
         return str(self.data)

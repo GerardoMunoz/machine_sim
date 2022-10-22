@@ -56,6 +56,8 @@ print(data_frame1.loc[0])
 #error print(data_frame2.loc[0])
 #error print(data_frame2.loc(0))
 
+print("Juan Esteban Parada, loc")
+
 print()
 
 print(data_frame1.at[1, "Est_act"])
