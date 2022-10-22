@@ -56,7 +56,8 @@ class DataFrame:
 
     # Nicolas Arevalo 20202005024
     # Crear el comando copy
-
+    def copy(arch, sep=';'):
+        arch = open(arch)
 
     def __getitem__(self,i):
         j=list(i)
