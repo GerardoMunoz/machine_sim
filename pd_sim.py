@@ -1,10 +1,18 @@
 seleccion_titulo=[]
 seleccion_valor=[]
 
+class Loc:
+    def __init__(self, data, *args, **kwargs):
+        self.data = data
+    def __getitem__(self,n):
+        lista=list(n)
+        
+        pass
+
 class DataFrame:
     def __init__(self, data, *args, **kwargs):
         self.data = data
-
+        self.loc=Loc
     def __str__(self):
         return str(self.data)
 
@@ -140,9 +148,6 @@ class DataFrame:
 
             diccionario_nuevo[llave]=lista_nueva
         return DataFrame(diccionario_nuevo)
-
-
-
 
 
 
