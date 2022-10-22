@@ -80,6 +80,19 @@ class DataFrame:
         # fila=dat[titulos(0)]
         dat[0]
         return fila
+    
+    def sort_index(  axis: Axis = 0, ascending: bool | Sequence[bool] = True)
+        
+        cambios =0,1,2,3..
+        n = len(indice)
+        for i in range(n-1):       # <-- bucle padre
+            for j in range(n-1-i): # <-- bucle hijo
+                if indice[j] > indice[j+1]:
+                    indice[j], indice[j+1] = incice[j+1], indice[j]
+                    cambios
+        
+    
+    #DataFrame.sort_index()
 
     def __neg__(self):
         '''
