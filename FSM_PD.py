@@ -95,14 +95,16 @@ print(-data_frame2)
 print()
 
 #Test Oscar-Poblador116
-data_frame1.iloc(4)
-#d[3:5,0:2]
-# print(seleccion_titulo)
-# print(seleccion_valor)
-#    A         B         C         D
-#  0.469112, -0.282863, -1.509059, -1.135632
-# 1.212112, -0.173215,  0.119209, -1.044236
-# -0.861849, -2.104569, -0.494929,  1.071804
-#  0.721555, -0.706771, -1.039575,  0.271860
-# -0.424972,  0.567020,  0.276232, -1.087401
-# -0.673690,  0.113648, -1.478427,  0.524988
+#Oscar David Poblador Parra - 20211005116
+#Función de selección de datos Iloc
+
+data_frame2.iloc[4]
+data_frame1.iloc[3:5,0:2]
+print("\n")
+print(data_frame2.iloc.seleccion_titulo)
+print(data_frame2.iloc.seleccion_valor)
+       
+
+
+
+

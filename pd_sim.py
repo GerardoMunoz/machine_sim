@@ -1,9 +1,9 @@
 
-#Oscar David Poblador Parra - 20211005116
-#Función de selección de datos Iloc
-seleccion_titulo=[]
-seleccion_valor=[]
+
 class Iloc:
+    seleccion_titulo=[]
+    seleccion_valor=[]
+
     def __init__(self,data,*args,**kwargs):
         self.data=data
     def __getitem__(self,i):
@@ -15,27 +15,27 @@ class Iloc:
         g=0
         if isinstance(j[0],slice):
             titulos=self.data.keys()
-            seleccion_titulo.clear()
-            seleccion_valor.clear()
+            self.seleccion_titulo.clear()
+            self.seleccion_valor.clear()
             for k in titulos:
                 valores=self.data[k]
                 if (l>=j[1].start)&(l<j[1].stop):
-                    seleccion_titulo.append(k)
+                    self.seleccion_titulo.append(k)
                     print("\nTitulo: ",k)
                     for g in range(j[0].start,j[0].stop):
-                        seleccion_valor.append(valores[g])
+                        self.seleccion_valor.append(valores[g])
                         print("Dato solicitado ",g,": ",valores[g])
 
                 l=l+1
         if isinstance (i,int):
-            seleccion_titulo.clear()
-            seleccion_valor.clear()
+            self.seleccion_titulo.clear()
+            self.seleccion_valor.clear()
             titulos=self.data.keys()
             for j in titulos:
                 valores=self.data[j]
-                seleccion_titulo.append(j)
+                self.seleccion_titulo.append(j)
                 print ("\nTitulo: ", j)
-                seleccion_valor.append(valores[i])
+                self.seleccion_valor.append(valores[i])
                 print("Dato solicitado: ",valores[i])
 
 class DataFrame:
@@ -165,13 +165,7 @@ def read_csv(arch, sep=','):
             
     
     
-datos="FMS_dosUnosSeguidos.csv"       
-d=read_csv(datos)
-d.iloc[4]
-d.iloc[3:5,0:2]
-print("\n")
-print(seleccion_titulo)
-print(seleccion_valor)
+
 
 
 
