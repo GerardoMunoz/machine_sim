@@ -104,7 +104,9 @@ print("\n")
 print(data_frame2.iloc.seleccion_titulo)
 print(data_frame2.iloc.seleccion_valor)
        
+#Test Funcion Manuel Guio 
+#Manuel Alejandro Guio Cardon - 20211005061
+#Funcion seleccion por columnas y filas
 
-
-
-
+data_frame1.iloc[1,3]
+data_frame2.iloc[1,3]
