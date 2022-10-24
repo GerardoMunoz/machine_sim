@@ -106,3 +106,10 @@ data_frame1.iloc(4)
 #  0.721555, -0.706771, -1.039575,  0.271860
 # -0.424972,  0.567020,  0.276232, -1.087401
 # -0.673690,  0.113648, -1.478427,  0.524988
+
+#michael063
+#Describe alguno datos de la tabla
+describe_pd1 = data_frame1.describe()
+describe_pd2 = data_frame2.describe()
+
+print(describe_pd1)
