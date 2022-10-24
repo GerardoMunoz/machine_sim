@@ -141,10 +141,17 @@ class DataFrame:
             diccionario_nuevo[llave]=lista_nueva
         return DataFrame(diccionario_nuevo)
 
-
-
-
-
+    def __gt__ (self,other):
+        a=self.data
+        for titulo in a:
+            for elem in titulo:
+                for elem,i in enumerate(titulo):
+                    if (elem>other):
+                        a [titulo][i]=elem 
+                    else:
+                        a[titulo][i]=None
+        return DataFrame(a)
+ 
 
 
 
