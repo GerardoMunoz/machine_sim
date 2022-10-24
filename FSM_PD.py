@@ -103,9 +103,18 @@ data_frame1.iloc[3:5,0:2]
 print("\n")
 print(data_frame2.iloc.seleccion_titulo)
 print(data_frame2.iloc.seleccion_valor)
+
+
+#Test función 3 iloc
+Juan David Bello Rodríguez - 20211005028
+data_frame1.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
+data_frame1.iloc[[1,2]] #Selecciona filas y las imprime
+
+data_frame2.iloc[[1,2],[1,2]]
+data_frame2.iloc[[1,2]]
 """ 
 
-data_frame1.iloc[[3,5],[0,2]]
+
 
 
 
