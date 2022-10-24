@@ -19,8 +19,9 @@ class Iat(object):
         self.data[row][column]=valor
     
 class DataFrame:
-    def __init__(self, data, *args, **kwargs):
+    def __init__(self, data, index=None, *args, **kwargs):
         self.data = data
+        self._indices=index
         self.iat=Iat(self.data) #Genera el metodo .iat invocando la clase Iat
 
     @table_decorador.table
@@ -161,7 +162,7 @@ class DataFrame:
 
 
 
-def read_csv(arch, sep=','):
+def read_csv(arch, sep=',', *args, **kwargs):
     arch = open(arch)
     linea = arch.readline()
     data = {}
@@ -170,6 +171,7 @@ def read_csv(arch, sep=','):
         titulo = titulo.strip()
         data[titulo] = []
         titulos.append(titulo)
+    
     for linea in arch.readlines():
         for i, elem_str in enumerate(linea.split(sep)):
             try:
@@ -181,5 +183,6 @@ def read_csv(arch, sep=','):
                     elem=elem_str.strip()
 
             data[titulos[i]].append(elem)
-    return DataFrame(data)
+    indices=list(range(len(data[titulo[0]])))
+    return DataFrame(data,index=indices)
 
