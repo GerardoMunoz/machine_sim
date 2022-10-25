@@ -48,7 +48,7 @@ print(data_frame2['Est_act'])
 print()
 
 print(data_frame1[0:3])
-print(data_frame2[0:3])
+# print(data_frame2[0:3])
 
 print()
 
@@ -56,10 +56,10 @@ print(data_frame1.loc[0])
 #error print(data_frame2.loc[0])
 #error print(data_frame2.loc(0))
 
-print()
-
-print(data_frame1.at[1,2])
-print(data_frame2.at[1,2])
+print(data_frame1)
+print('data_frame1')
+#print(data_frame1.at[1,2])
+#print(data_frame2.at[1,2])
 
 print()
 
@@ -94,7 +94,7 @@ print(-data_frame2)
 print()
 
 #Test Oscar-Poblador116
-data_frame1.iloc(4)
+#data_frame1.iloc(2)
 #d[3:5,0:2]
 # print(seleccion_titulo)
 # print(seleccion_valor)

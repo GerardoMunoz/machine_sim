@@ -1,4 +1,3 @@
-from decorador import table_decorador
 
 seleccion_titulo=[]
 seleccion_valor=[]
@@ -19,12 +18,31 @@ class Iat(object):
         self.data[row][column]=valor
     
 class DataFrame:
-    def __init__(self, data, index=None, index=None, *args, **kwargs):
-        self.data = data
+    '''
+    Esta clase almacena los datos en el diccionario `self.data`
+    y los indices en `self.index`
 
-    @table_decorador.table
+    '''
+
+    def __init__(self, data, index=None, *args, **kwargs):
+        self.data = data # Es un diccionario de la siguiente forma: 
+        '''
+        {
+            Titulo1 : [elem11,elem12,elem13,...],
+            Titulo2 : [elem21,elem22,elem23,...],
+            Titulo3 : [elem31,elem32,elem33,...],
+            ...
+        }
+        '''
+        if isinstance(data,dict):
+            for primer_titulo in data.keys():break # truco para obtener la primera llave del diccionario
+        else:
+            primer_titulo=0
+        self.index= index if index else list(range(len(data[primer_titulo]))) # es una lista con el nombre de los indices
+
     def __str__(self):
-        return str(self.data)
+
+        return str(self.data)+('\nindices: '+str(self.index) if self.index else '')
 
     
     def _index_(arch):
@@ -181,5 +199,6 @@ def read_csv(arch, sep=',', *args, **kwargs):
                     elem=elem_str.strip()
 
             data[titulos[i]].append(elem)
+    
     return DataFrame(data)
 
