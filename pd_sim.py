@@ -1,6 +1,7 @@
 class DataFrame:
-    def __init__(self, data, *args, **kwargs):
+    def __init__(self, data, index=None, *args, **kwargs):
         self.data = data
+        self._indice = index
 
     def __str__(self):
         return str(self.data)
@@ -139,5 +140,6 @@ def read_csv(arch, sep=','):
                     elem=elem_str.strip()
 
             data[titulos[i]].append(elem)
-    return DataFrame(data)
+    indice=list(range(len(data(titulos[0]))))
+    return DataFrame(data, indice)
 
