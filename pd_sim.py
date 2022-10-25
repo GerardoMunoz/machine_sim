@@ -1,16 +1,32 @@
-class DataFrame:
-    def __init__(self, data, index=None, *args, **kwargs):
-        self.data = data
-        self._indice = index
+from decorador import table_decorador
 
+seleccion_titulo=[]
+seleccion_valor=[]
+
+'''Willian Chaparro codigo 9520520
+ Se define el metodo .iat
+uso: df[a,b] devuelve la fila 'a' y la columna 'b' de una matriz '''
+
+class Iat(object):
+    def __init__(self,data, *args, **kwargs):
+        self.data=data
+   
+    def __getitem__(self,nums): #Obtiene los indices de fila y columna
+        row,column=nums
+        return self.data[row][column]
+    def __setitem__(self,nums,valor):
+        row,column=nums
+        self.data[row][column]=valor
+    
+class DataFrame:
+    def __init__(self, data, index=None, index=None, *args, **kwargs):
+        self.data = data
+
+    @table_decorador.table
     def __str__(self):
         return str(self.data)
 
-    def __getitem__(self, indice):
-        print('indice', indice)
-        if isinstance(indice, slice):
-            print('slice', indice.start, indice.step, indice.stop)
-
+    
     def _index_(arch):
         arch = open(arch)
         for i in arch.keys():
@@ -22,12 +38,6 @@ class DataFrame:
     def __setitem__(indice, valor):
         pass
 
-    def iat(self, row, column):
-        a = self.data
-        b = a[row]
-        c = b[column]
-        print(c)
-
     def head(arch, n, sep=';'):
         with open(arch) as f:
             lineas = [lineas.strip('\n') for lineas in f.readlines()]
@@ -38,16 +48,6 @@ class DataFrame:
         print(d.data)
         keys = dict.keys(d.data)
 
-    # Realizar lecturas según su posición
-    def iloc(self, i):  # Se debe crear la funcion iloc para el funcionamiento, de leer los datos segun su posicion
-        if isinstance(i, slice):
-            # if isinstance (j,slice):
-            pass
-
-        if isinstance(i, int):
-            for i in range(0, i):
-                print(self.data[i])
-                a = d.data[i][0]
 
 
     def funcion_tail(arch, n):
@@ -68,6 +68,46 @@ class DataFrame:
 
     # Nicolas Arevalo 20202005024
     # Crear el comando copy
+
+
+    def __getitem__(self,i):
+        j=list(i)
+        l=0
+        g=0
+        if isinstance(j[0],slice):
+            titulos=self.data.keys()
+            seleccion_titulo.clear()
+            seleccion_valor.clear()
+            for k in titulos:
+                valores=self.data[k]
+                if (l>=j[1].start)&(l<j[1].stop):
+                    seleccion_titulo.append(k)
+                    print("\nTitulo: ",k)
+                    for g in range(j[0].start,j[0].stop):
+                        seleccion_valor.append(valores[g])
+                        print("Dato solicitado ",g,": ",valores[g])
+
+                l=l+1
+     
+            
+    #Realizar lecturas según su posición
+
+    def iloc(self,i):
+        
+        if isinstance(i,slice):
+            print("lo logramos")
+        if isinstance (i,int):
+            seleccion_titulo.clear()
+            seleccion_valor.clear()
+            titulos=self.data.keys()
+            for j in titulos:
+                valores=self.data[j]
+                seleccion_titulo.append(j)
+                print ("\nTitulo: ", j)
+                seleccion_valor.append(valores[i])
+                print("Dato solicitado: ",valores[i])
+
+
 
 
     def copy(arch, sep=';'):
@@ -120,7 +160,7 @@ class DataFrame:
 
 
 
-def read_csv(arch, sep=','):
+def read_csv(arch, sep=',', *args, **kwargs):
     arch = open(arch)
     linea = arch.readline()
     data = {}
@@ -129,6 +169,7 @@ def read_csv(arch, sep=','):
         titulo = titulo.strip()
         data[titulo] = []
         titulos.append(titulo)
+    
     for linea in arch.readlines():
         for i, elem_str in enumerate(linea.split(sep)):
             try:
@@ -140,6 +181,5 @@ def read_csv(arch, sep=','):
                     elem=elem_str.strip()
 
             data[titulos[i]].append(elem)
-    indice=list(range(len(data(titulos[0]))))
-    return DataFrame(data, indice)
+    return DataFrame(data)
 
