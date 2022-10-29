@@ -62,23 +62,29 @@ class DataFrame:
 
 
     def __getitem__(self,i):
-        j=list(i)
-        l=0
-        g=0
-        if isinstance(j[0],slice):
-            titulos=self.data.keys()
-            seleccion_titulo.clear()
-            seleccion_valor.clear()
-            for k in titulos:
-                valores=self.data[k]
-                if (l>=j[1].start)&(l<j[1].stop):
-                    seleccion_titulo.append(k)
-                    print("\nTitulo: ",k)
-                    for g in range(j[0].start,j[0].stop):
-                        seleccion_valor.append(valores[g])
-                        print("Dato solicitado ",g,": ",valores[g])
-
-                l=l+1
+        if isinstance(i,slice):
+            pass
+        elif isinstance(i,int):
+            pass
+        
+            
+    #    j=list(i)
+#         l=0
+#         g=0
+#         if isinstance(j[0],slice):
+#             titulos=self.data.keys()
+#             seleccion_titulo.clear()
+#             seleccion_valor.clear()
+#             for k in titulos:
+#                 valores=self.data[k]
+#                 if (l>=j[1].start)&(l<j[1].stop):
+#                     seleccion_titulo.append(k)
+#                     print("\nTitulo: ",k)
+#                     for g in range(j[0].start,j[0].stop):
+#                         seleccion_valor.append(valores[g])
+#                         print("Dato solicitado ",g,": ",valores[g])
+# 
+#                 l=l+1
      
             
     #Realizar lecturas según su posición
