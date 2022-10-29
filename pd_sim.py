@@ -7,17 +7,16 @@ class Loc:
     def __init__():
         pass
 
-    def __getitem__(self,n):
-        lista=list(n)
-        n=0
-        print("datos de la fila: " +n)
-        ##Falla fila no esta definida
+    def __getitem__(self, n):
+        lista = list(n)
+        n = 0
+        print("datos de la fila: " + n)
+        # Falla fila no esta definida
         # if fila(d,slice):
         #     d=x+1
         #     print("datos de la fila: " +dat)
         #     for dat in x
         #     pass
-
 
 
 class Iloc:
@@ -26,47 +25,50 @@ class Iloc:
     Crea listas de selección con los elementos solicitados
     uso: df2.iloc[3:5,0:2] =  titulo 1 : dato 3 y datos 4, titulo 2: dato 3 y dato 4
     '''
-    seleccion_titulo=[]
-    seleccion_valor=[]
+    seleccion_titulo = []
+    seleccion_valor = []
 
-    def __init__(self,data,*args,**kwargs):
-        self.data=data
-    def __getitem__(self,i):
+    def __init__(self, data, *args, **kwargs):
+        self.data = data
+
+    def __getitem__(self, i):
         try:
-            j=list(i)
+            j = list(i)
         except:
-            j=[0]
-        l=0
-        g=0
-        if isinstance(j[0],slice):
-            titulos=self.data.keys()
+            j = [0]
+        l = 0
+        g = 0
+        if isinstance(j[0], slice):
+            titulos = self.data.keys()
             self.seleccion_titulo.clear()
             self.seleccion_valor.clear()
             for k in titulos:
-                valores=self.data[k]
-                if (l>=j[1].start)&(l<j[1].stop):
+                valores = self.data[k]
+                if (l >= j[1].start) & (l < j[1].stop):
                     self.seleccion_titulo.append(k)
-                    print("\nTitulo: ",k)
-                    for g in range(j[0].start,j[0].stop):
+                    print("\nTitulo: ", k)
+                    for g in range(j[0].start, j[0].stop):
                         self.seleccion_valor.append(valores[g])
-                        print("Dato solicitado ",g,": ",valores[g])
+                        print("Dato solicitado ", g, ": ", valores[g])
 
-                l=l+1
-        if isinstance (i,int):
+                l = l+1
+        if isinstance(i, int):
             self.seleccion_titulo.clear()
             self.seleccion_valor.clear()
-            titulos=self.data.keys()
+            titulos = self.data.keys()
             for j in titulos:
-                valores=self.data[j]
+                valores = self.data[j]
                 self.seleccion_titulo.append(j)
-                print ("\nTitulo: ", j)
+                print("\nTitulo: ", j)
                 self.seleccion_valor.append(valores[i])
-                print("Dato solicitado: ",valores[i])
+                print("Dato solicitado: ", valores[i])
+
 
 class Iat(object):
     def __init__(self, data, *args, **kwargs):
         self.data = data
         self.loc = Loc()
+
     def __getitem__(self, nums):  # Obtiene los indices de fila y columna
         row, column = nums
         return self.data[row][column]
@@ -77,7 +79,7 @@ class Iat(object):
 
 
 class DataFrame:
-    
+
     def __init__(self, data, index=None, *args, **kwargs):
         self.data = data  # Es un diccionario de la siguiente forma:
         '''
@@ -95,7 +97,7 @@ class DataFrame:
             primer_titulo = 0
         # es una lista con el nombre de los indices
         self.index = index if index else list(range(len(data[primer_titulo])))
-    
+
     def __str__(self):
 
         return str(self.data)+('\nindices: '+str(self.index) if self.index else '')
@@ -183,9 +185,9 @@ class DataFrame:
         # fila=dat[titulos(0)]
         dat[0]
         return fila
-    
+
 #     def sort_index(axis, ascending)
-#         
+#
 #         if ascendig ==true:
 #             n = len(indice)
 #             for i in range(n-1):       # <-- bucle padre
@@ -197,10 +199,10 @@ class DataFrame:
 #             for i in range(n-1):       # <-- bucle padre
 #                 for j in range(n-1-i): # <-- bucle hijo
 #                     if indice[j] > indice[j+1]:
-#                         indice[j], indice[j+1] = incice[j+1], indice[j]            
-#         
-    
-    #DataFrame.sort_index()
+#                         indice[j], indice[j+1] = incice[j+1], indice[j]
+#
+
+    # DataFrame.sort_index()
 
     def iat(self, row, column):
         a = self.data
