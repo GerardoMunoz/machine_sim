@@ -7,9 +7,16 @@ class Loc:
     def __init__():
         pass
 
-    def __getitem__():
-        pass
-
+    def __getitem__(self,n):
+        lista=list(n)
+        n=0
+        print("datos de la fila: " +n)
+        ##Falla fila no esta definida
+        # if fila(d,slice):
+        #     d=x+1
+        #     print("datos de la fila: " +dat)
+        #     for dat in x
+        #     pass
 
 class Iat(object):
     def __init__(self, data, *args, **kwargs):
@@ -26,7 +33,7 @@ class Iat(object):
 
 
 class DataFrame:
-
+    
     def __init__(self, data, index=None, *args, **kwargs):
         self.data = data  # Es un diccionario de la siguiente forma:
         '''
@@ -44,7 +51,7 @@ class DataFrame:
             primer_titulo = 0
         # es una lista con el nombre de los indices
         self.index = index if index else list(range(len(data[primer_titulo])))
-
+    
     def __str__(self):
 
         return str(self.data)+('\nindices: '+str(self.index) if self.index else '')
