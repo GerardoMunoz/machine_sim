@@ -155,6 +155,12 @@ class DataFrame:
             diccionario_nuevo[llave] = lista_nueva
         return DataFrame(diccionario_nuevo)
 
+    def T(self, d):
+        print(d.data, end="\n\n")
+        keys = dict.keys(d.data)
+        values = dict.values(d.data)
+        print("Llaves: "+str(keys)+"\n\nValores: "+str(values)+"\n", end="\n\n")
+
 
 def read_csv(arch, sep=','):
     arch = open(arch)
