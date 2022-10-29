@@ -127,21 +127,21 @@ data_frame2.iloc[1,2]
 
 #Test función 4 iloc
 #Manuel Alejandro Guio Cardona - 20211005061
-# print("\nIloc seleccion slice y slice completo - Manuel Guio 20211005061")
+print("\nIloc seleccion slice y slice completo - Manuel Guio 20211005061")
 
 # colum = str(data_frame2.iloc.lista_columnas)
 
 # fil = str (data_frame2.iloc.lista_filas)
 
-# print("\nPrueba con slice en columnas (derecha), imprime todas las filas")
-# data_frame2.iloc[ : ,1:3]
+print("\nPrueba con slice en columnas (derecha), imprime todas las filas")
+data_frame2.iloc[ : ,1:3]
 
 # # print("\nValores seleccionados")
 # # print("Columnas: "+ colum)
 # # print("Filas: "+ fil)
 
-# print("\nPrueba con slice en filas (izquierda), imprime todas las columnas ")
-# data_frame2.iloc[1:3, : ]
+print("\nPrueba con slice en filas (izquierda), imprime todas las columnas ")
+data_frame2.iloc[1:3, : ]
 
 # # print("\nValores seleccionados")
 
