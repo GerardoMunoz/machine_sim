@@ -5,7 +5,7 @@ nombre_archivo = 'FSM_dosUnosSeguidos.csv'
 
 #data_frame1 = pd1.read_csv(nombre_archivo)
 data_frame2 = pd2.read_csv(nombre_archivo)
-<<<<<<< HEAD
+
 
 # #print(data_frame1)
 # print(data_frame2)
@@ -120,8 +120,7 @@ print(data_frame2.iloc.seleccion_valor)
 #Test función 3 iloc
 #Juan David Bello Rodríguez - 20211005028
 
-data_frame1.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
-data_frame1.iloc[[1,2]] #Selecciona filas y las imprime
+data_frame2.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
 
 
 
