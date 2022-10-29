@@ -5,9 +5,11 @@ nombre_archivo = 'FSM_dosUnosSeguidos.csv'
 
 #data_frame1 = pd1.read_csv(nombre_archivo)
 data_frame2 = pd2.read_csv(nombre_archivo)
+<<<<<<< HEAD
 
 # #print(data_frame1)
 # print(data_frame2)
+
 
 # print()
 
@@ -31,11 +33,14 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 
 # print()
 
+
 # #print(data_frame1.T)
 # print(data_frame2.T)
 # #error print(data_frame2.T())
 
+
 # print()
+
 
 # #print(data_frame1.sort_index(axis=1, ascending=False))
 # #error print(data_frame2.sort_index(axis=1, ascending=False))
@@ -110,7 +115,23 @@ print("\nValores seleccionados")
 print("\n")
 print(data_frame2.iloc.seleccion_titulo)
 print(data_frame2.iloc.seleccion_valor)
-       
+
+
+#Test función 3 iloc
+#Juan David Bello Rodríguez - 20211005028
+
+data_frame1.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
+data_frame1.iloc[[1,2]] #Selecciona filas y las imprime
+
+
+
+#Test función 4 iloc
+#Manuel Alejandro Guio Cardona - 20211005061
+data_frame2.iloc[1:2, : ]
+data_frame2.iloc[ : ,1:2]
+
+
+
 
 
 
