@@ -12,7 +12,7 @@ print(data_frame2)
 print()
 
 print(data_frame1.head())
-#error print(data_frame2.head())
+error print(data_frame2.head())
 
 print()
 
@@ -51,53 +51,75 @@ print(data_frame1[0:3])
 # print(data_frame2[0:3])
 
 print("Manuel Gamboa Funcion Loc")
+print(data_frame1[0:3])
+print(data_frame2[0:3])
+
+# print()
 
 print(data_frame1.loc[0])
-#error print(data_frame2.loc[0])
-#error print(data_frame2.loc(0))
+# #error print(data_frame2.loc[0])
+# #error print(data_frame2.loc(0))
 
 print(data_frame1)
 print('data_frame1')
-#print(data_frame1.at[1,2])
-#print(data_frame2.at[1,2])
+print(data_frame1.at[1,2])
+print(data_frame2.at[1,2])
 print("Juan Esteban Parada, loc")
 
+print()
 
 print(data_frame1.at[1, "Est_act"])
 #error print(data_frame2.at[1, "Est_act")])
 #error print(data_frame2.at(1, "Est_act"))
 
-print()
+# print()
 
 print(data_frame1 > 0)
-#error print(data_frame2 > 0)
+# #error print(data_frame2 > 0)
 
-print()
+# print()
 
 print(data_frame1.iloc[3])
-#error print(data_frame2.iloc[3])
-#error print(data_frame2.iloc(3))
+# #error print(data_frame2.iloc[3])
+# #error print(data_frame2.iloc(3))
 
-print()
+# print()
 
-data_frame1_a=data_frame1.copy()
+# #data_frame1_a=data_frame1.copy()
 print(data_frame1_a)
-#error data_frame2_a=data_frame2.copy()
-#error print(data_frame2_a)
+# #error data_frame2_a=data_frame2.copy()
+# #error print(data_frame2_a)
 
-print()
+# print()
 
-data_frame1_a['Est_act'] = 0
+# #data_frame1_a['Est_act'] = 0
 print(data_frame1_a)
-#data_frame2['Est_act'] = 0
-#print(data_frame2)
+# #data_frame2['Est_act'] = 0
+print(data_frame2)
 
-print('Función negar -, Gerardo Muñoz')
+# print('Función negar -, Gerardo Muñoz')
 
 print(-data_frame1)
-print(-data_frame2)
+# print(-data_frame2)
 
-print()
+# print()
+
+
+#Oscar David Poblador Parra - 20211005116
+#Función de selección de datos Iloc
+print("\nIloc selección entero y slice - Oscar Poblador 20211005116")
+print("\nPRUEBA CON PÁRAMETRO ENTERO")
+data_frame2.iloc[2]
+print("\n")
+print("\nValores seleccionados")
+print(data_frame2.iloc.seleccion_titulo)
+print(data_frame2.iloc.seleccion_valor)
+print("\nPRUEBA CON PÁRAMETRO SLICE")
+data_frame2.iloc[1:3,0:2]
+print("\nValores seleccionados")
+print("\n")
+print(data_frame2.iloc.seleccion_titulo)
+print(data_frame2.iloc.seleccion_valor)
 
 #Test Oscar-Poblador116
 #data_frame1.iloc(2)
@@ -120,5 +142,5 @@ print()
 # print('Valor nuevo: ',df.iat[0,2])
 
 #Test JhonatanMJ1127
-#print(Jhonatan.index)
-#print()
+# print(Jhonatan.index)
+# print()
