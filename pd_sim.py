@@ -1,11 +1,7 @@
-from itertools import count
 from decorador import table_decorador
-from multiprocessing.resource_sharer import stop
 
-seleccion_titulo=[]
-seleccion_valor=[]
-
-
+seleccion_titulo = []
+seleccion_valor = []
 
 
 class Loc:
@@ -23,48 +19,49 @@ class Loc:
         #     for dat in x
         #     pass
 
+
 class Iloc:
-    seleccion_titulo=[]
-    seleccion_valor=[]
+    seleccion_titulo = []
+    seleccion_valor = []
 
-    lista_claves=[]
-    lista_valores=[]
-    lista_columnas=[]
-    lista_filas=[]
-    diccionario={}
+    lista_claves = []
+    lista_valores = []
+    lista_columnas = []
+    lista_filas = []
+    diccionario = {}
 
-    def __init__(self,data,*args,**kwargs):
-        self.data=data
-    def __getitem__(self,i):
+    def __init__(self, data, *args, **kwargs):
+        self.data = data
+
+    def __getitem__(self, i):
         try:
             j = list(i)
         except:
-            j=[0]
-        l=0
-        g=0
+            j = [0]
+        l = 0
+        g = 0
 
-        for clave in self.data:   #Para poder recorrer las posiciones
+        for clave in self.data:  # Para poder recorrer las posiciones
             self.lista_claves.append(clave)
-        self.lista_valores=list(self.data.values())
+        self.lista_valores = list(self.data.values())
 
-
-        if isinstance(j[0],slice):
-            titulos=self.data.keys()
+        if isinstance(j[0], slice):
+            titulos = self.data.keys()
             self.seleccion_titulo.clear()
             self.seleccion_valor.clear()
-            titulos=self.data.keys()
-            if (isinstance(j[1],slice)):
+            titulos = self.data.keys()
+            if (isinstance(j[1], slice)):
                 for k in titulos:
-                    valores=self.data[k]
-                    if (l>=j[1].start)&(l<j[1].stop):
+                    valores = self.data[k]
+                    if (l >= j[1].start) & (l < j[1].stop):
                         self.seleccion_titulo.append(k)
-                        print("\nTitulo: ",k)
-                        for g in range(j[0].start,j[0].stop):
+                        print("\nTitulo: ", k)
+                        for g in range(j[0].start, j[0].stop):
                             self.seleccion_valor.append(valores[g])
-                            print("Dato solicitado ",g,": ",valores[g])
-                l=l+1
+                            print("Dato solicitado ", g, ": ", valores[g])
+                l = l+1
 
-        if isinstance (i,int):
+        if isinstance(i, int):
             self.seleccion_titulo.clear()
             self.seleccion_valor.clear()
             titulos = self.data.keys()
@@ -74,31 +71,30 @@ class Iloc:
                 print("\nTitulo: ", j)
                 self.seleccion_valor.append(valores[i])
                 print("Dato solicitado: ", valores[i])
-                    
-        if (isinstance(i[0], int) &  isinstance(i[1], int)): #Función 6 iloc
-            self.lista_columnas=self.data[self.lista_claves[i[1]]]
-            self.lista_filas=[self.lista_columnas[i[0]]]
-            self.diccionario[self.lista_claves[i[1]]]=self.lista_filas
+
+        if (isinstance(i[0], int) & isinstance(i[1], int)):  # Función 6 iloc
+            self.lista_columnas = self.data[self.lista_claves[i[1]]]
+            self.lista_filas = [self.lista_columnas[i[0]]]
+            self.diccionario[self.lista_claves[i[1]]] = self.lista_filas
             print(self.diccionario)
 
-        if (isinstance(j[0], list) & isinstance(j[1], list)): #Función 3 iloc
+        if (isinstance(j[0], list) & isinstance(j[1], list)):  # Función 3 iloc
             for i in j[1]:
-                self.lista_columnas=self.data[self.lista_claves[i]]
-                self.lista_filas=[]
+                self.lista_columnas = self.data[self.lista_claves[i]]
+                self.lista_filas = []
                 for k in j[0]:
                     self.lista_filas.append(self.lista_columnas[k])
                 self.diccionario[self.lista_claves[i]] = self.lista_filas
             print(self.diccionario)
 
-        if (isinstance(i, list)): #Función 3 iloc (La función da error si recibe una lista de 1 elemento)
+        if (isinstance(i, list)):  # Función 3 iloc (La función da error si recibe una lista de 1 elemento)
             for h in self.lista_claves:
-                self.lista_columnas=self.data[h]
-                self.lista_filas=[]
+                self.lista_columnas = self.data[h]
+                self.lista_filas = []
                 for k in i:
                     self.lista_filas.append(self.lista_columnas[k])
                 self.diccionario[h] = self.lista_filas
             print(self.diccionario)
-
 
 
 class Iat(object):
@@ -114,8 +110,6 @@ class Iat(object):
         row, column = nums
         self.data[row][column] = valor
 
-
-        
 
 class DataFrame:
 
@@ -137,6 +131,7 @@ class DataFrame:
         # es una lista con el nombre de los indices
         self.index = index if index else list(range(len(data[primer_titulo])))
 
+    @table_decorador.table
     def __str__(self):
 
         return str(self.data)+('\nindices: '+str(self.index) if self.index else '')
@@ -285,7 +280,6 @@ class DataFrame:
         values = dict.values(d.data)
         print("Llaves: "+str(keys)+"\n\nValores: "+str(values)+"\n", end="\n\n")
 
-    
     def describe(self):
         data = self.data
         _dict_describe = {}
@@ -301,7 +295,7 @@ class DataFrame:
             for j in _list_values[i]:
                 _list.append(j.isnumeric())
             _list_values_only_numbers.append(_list)
-        
+
         for x in _list_values_only_numbers:
             global _only_numbers
             _only_numbers = False
@@ -313,22 +307,20 @@ class DataFrame:
                     if key == title:
                         _dict_describe[title] = []
                         _dict_describe[title].append(_list_values_count[i])
-        #if not _only_numbers:
+        # if not _only_numbers:
 
         print(_dict_describe)
-        
-    def __gt__ (self,other):
-        a=self.data
+
+    def __gt__(self, other):
+        a = self.data
         for titulo in a:
             for elem in titulo:
-                for elem,i in enumerate(titulo):
-                    if (elem>other):
-                        a [titulo][i]=elem 
+                for elem, i in enumerate(titulo):
+                    if (elem > other):
+                        a[titulo][i] = elem
                     else:
-                        a[titulo][i]=None
+                        a[titulo][i] = None
         return DataFrame(a)
- 
-
 
 
 def read_csv(arch, sep=','):
