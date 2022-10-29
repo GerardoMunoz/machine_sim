@@ -71,6 +71,8 @@ class Iloc:
                     self.lista_filas.append(self.lista_columnas[k])
                 self.diccionario[h] = self.lista_filas
             print(self.diccionario)
+        if ((j[1]==None)):
+            print("hola")
 
 class DataFrame:
     def __init__(self,data,*args,**kwargs):
