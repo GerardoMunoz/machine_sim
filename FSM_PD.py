@@ -60,6 +60,12 @@ print(data_frame1)
 print('data_frame1')
 #print(data_frame1.at[1,2])
 #print(data_frame2.at[1,2])
+print("Juan Esteban Parada, loc")
+
+
+print(data_frame1.at[1, "Est_act"])
+#error print(data_frame2.at[1, "Est_act")])
+#error print(data_frame2.at(1, "Est_act"))
 
 print()
 

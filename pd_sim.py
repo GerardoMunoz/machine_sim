@@ -3,9 +3,18 @@ seleccion_titulo = []
 seleccion_valor = []
 
 
+class Loc:
+    def __init__():
+        pass
+
+    def __getitem__():
+        pass
+
+
 class Iat(object):
     def __init__(self, data, *args, **kwargs):
         self.data = data
+        self.loc = Loc()
 
     def __getitem__(self, nums):  # Obtiene los indices de fila y columna
         row, column = nums
@@ -70,7 +79,6 @@ class DataFrame:
             lineas = [lineas.strip('\n') for lineas in f.readlines()]
         return lineas[-n:]
 
-
     def __getitem__(self, i):
         j = list(i)
         l = 0
@@ -106,20 +114,16 @@ class DataFrame:
                 seleccion_valor.append(valores[i])
                 print("Dato solicitado: ", valores[i])
 
-    #20202005024
+    # 20202005024
     # Crear el comando que agrege una nueva columna
-    
+
     def adi(self):
 
         diccionario = self.data
         diccionario_nuevo = {}
         columna = diccionario.keys()
         fila_nueva = []
-        diccionario_nuevo[columna]=fila_nueva
-        
-
-
-
+        diccionario_nuevo[columna] = fila_nueva
 
     # Funcion encargada de localizar filas y columnas del documento e identificar si la entrada es un int,str o slice. Imprimiendo los datos.
 
