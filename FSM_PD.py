@@ -105,3 +105,10 @@ print()
 #  0.721555, -0.706771, -1.039575,  0.271860
 # -0.424972,  0.567020,  0.276232, -1.087401
 # -0.673690,  0.113648, -1.478427,  0.524988
+
+# test funcion iat - Willian Chaparro
+# df = data_frame2.DataFrame([[0, 2, 3], [0, 4, 1], [10, 20, 30]],columns=['A', 'B', 'C'])
+# print(df.iat[0,1])
+# print('Valor antiguo: ',df.iat[0,2])
+# df.iat[0,2]=10
+# print('Valor nuevo: ',df.iat[0,2])
