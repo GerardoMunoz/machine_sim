@@ -49,10 +49,8 @@ class Iloc:
                         if (l>=j[1].start)&(l<j[1].stop):
 
                             self.seleccion_titulo.append(k)
-                            print("\nTitulo: ",k)
                             for g in range(j[0].start,j[0].stop):
                                 self.seleccion_valor.append(valores[g])
-                                print("Dato solicitado ",g,": ",valores[g])
                         l=l+1
                 if (isinstance(j[0],slice) & isinstance(j[1],slice))&(j[1].start!=None)&(j[1].stop!=None)&(j[1].step!=None):
                     for k in range(j[1].start,j[1].stop):
@@ -89,9 +87,7 @@ class Iloc:
                 for j in titulos:
                     valores=self.data[j]
                     self.seleccion_titulo.append(j)
-                    print ("\nTitulo: ", j)
                     self.seleccion_valor.append(valores[i])
-                    print("Dato solicitado: ",valores[i])
 
             if (isinstance(j[0], list) & isinstance(j[1], list)): #Función 3 iloc
                 print("entro2")
