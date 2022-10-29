@@ -110,8 +110,10 @@ print(data_frame2.iloc.seleccion_valor)
 #data_frame1.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
 #data_frame1.iloc[[1,2]] #Selecciona filas y las imprime
 
-data_frame2.iloc[[1,2],[1,2]]
-data_frame2.iloc[[1,2]]
+#data_frame2.iloc[[1,2],[1,2]]
+#data_frame2.iloc[[1,2]]
+data_frame2.iloc[1:2, : ]
+data_frame2.iloc[ : ,1:2]
 
 
 
