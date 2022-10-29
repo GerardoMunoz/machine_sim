@@ -104,13 +104,10 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 #Función de selección de datos Iloc
 print("\nIloc selección entero y slice - Oscar Poblador 20211005116")
 print("\nPRUEBA CON PÁRAMETRO ENTERO")
-data_frame2.iloc[0]
-print(data_frame2.iloc.seleccion_titulo)
-print(data_frame2.iloc.seleccion_valor)
+data_frame2.iloc[2]
 print("\nPRUEBA CON PÁRAMETRO DE 2 SLICE")
-data_frame2.iloc[1:3,1:3] #Datos - Titulos]
-print(data_frame2.iloc.seleccion_titulo)
-print(data_frame2.iloc.seleccion_valor)
+data_frame2.iloc[1:4,1:3] #Datos - Titulos]
+
 
 
 #Test función 3 iloc

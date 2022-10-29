@@ -13,15 +13,16 @@ class Iloc:
     seleccion_titulo=[]
     seleccion_valor=[]
 
-    lista_claves=[]
-    lista_valores=[]
-    lista_columnas=[]
-    lista_filas=[]
-    diccionario={}
+    
 
     def __init__(self,data,*args,**kwargs):
         self.data=data
     def __getitem__(self,i):
+        self.lista_claves=[]
+        self.lista_valores=[]
+        self.lista_columnas=[]
+        self.lista_filas=[]
+        self.diccionario={}
         try:
             j=list(i)
         except:
@@ -51,7 +52,9 @@ class Iloc:
                             self.seleccion_titulo.append(k)
                             for g in range(j[0].start,j[0].stop):
                                 self.seleccion_valor.append(valores[g])
+                            self.diccionario[k]=self.lista_valores[g]
                         l=l+1
+                print(self.diccionario)
                 if (isinstance(j[0],slice) & isinstance(j[1],slice))&(j[1].start!=None)&(j[1].stop!=None)&(j[1].step!=None):
                     for k in range(j[1].start,j[1].stop):
                         self.lista_columnas=self.data[self.lista_claves[k]]
@@ -88,6 +91,9 @@ class Iloc:
                     valores=self.data[j]
                     self.seleccion_titulo.append(j)
                     self.seleccion_valor.append(valores[i])
+                    self.diccionario[j] = self.lista_valores[i]
+            print(self.diccionario)
+                
 
             if (isinstance(j[0], list) & isinstance(j[1], list)): #Función 3 iloc
                 print("entro2")
