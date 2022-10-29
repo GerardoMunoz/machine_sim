@@ -70,8 +70,6 @@ class DataFrame:
             lineas = [lineas.strip('\n') for lineas in f.readlines()]
         return lineas[-n:]
 
-    # Nicolas Arevalo 20202005024
-    # Crear el comando copy
 
     def __getitem__(self, i):
         j = list(i)
@@ -108,8 +106,20 @@ class DataFrame:
                 seleccion_valor.append(valores[i])
                 print("Dato solicitado: ", valores[i])
 
-    def copy(arch, sep=';'):
-        arch = open(arch)
+    #20202005024
+    # Crear el comando que agrege una nueva columna
+    
+    def adi(self):
+
+        diccionario = self.data
+        diccionario_nuevo = {}
+        columna = diccionario.keys()
+        fila_nueva = []
+        diccionario_nuevo[columna]=fila_nueva
+        
+
+
+
 
     # Funcion encargada de localizar filas y columnas del documento e identificar si la entrada es un int,str o slice. Imprimiendo los datos.
 
