@@ -31,13 +31,13 @@ print(data_frame1.describe())
 
 print()
 
-print(data_frame1.T)
+#print(data_frame1.T)
 print(data_frame2.T)
 #error print(data_frame2.T())
 
 print()
 
-print(data_frame1.sort_index(axis=1, ascending=False))
+#print(data_frame1.sort_index(axis=1, ascending=False))
 #error print(data_frame2.sort_index(axis=1, ascending=False))
 
 print()
@@ -120,6 +120,19 @@ print("\nValores seleccionados")
 print("\n")
 print(data_frame2.iloc.seleccion_titulo)
 print(data_frame2.iloc.seleccion_valor)
+
+
+#Test función 3 iloc
+# Juan David Bello Rodríguez - 20211005028
+data_frame1.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
+data_frame1.iloc[[1,2]] #Selecciona filas y las imprime
+
+data_frame2.iloc[[1,2],[1,2]]
+data_frame2.iloc[[1,2]]
+
+
+
+
 
 #Test Oscar-Poblador116
 #data_frame1.iloc(2)
