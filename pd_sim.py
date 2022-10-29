@@ -147,10 +147,15 @@ class DataFrame:
     def __setitem__(indice, valor):
         pass
 
-    def head(arch, n, sep=';'):
-        with open(arch) as f:
-            lineas = [lineas.strip('\n') for lineas in f.readlines()]
-        return lineas[n:]
+    def head( self,n=5):
+        for column_title in list(self.data.keys()): 
+            print(self.data[column_title][:n])
+        
+    def tail( self,n=-5):
+        for column_title in list(self.data.keys()): 
+            print(self.data[column_title][n:])
+        
+        
 
     def T(self, d):
         # print("Hola Mundo"
