@@ -121,7 +121,7 @@ print(data_frame2.iloc.seleccion_valor)
 #Juan David Bello Rodríguez - 20211005028
 
 data_frame2.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
-
+data_frame2.iloc[1,2]
 
 
 #Test función 4 iloc
