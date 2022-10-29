@@ -1,7 +1,5 @@
 
 from multiprocessing.resource_sharer import stop
-
-
 class Iloc:
     '''
     Oscar Poblador
@@ -14,15 +12,18 @@ class Iloc:
     seleccion_valor=[]
 
 
-
     def __init__(self,data,*args,**kwargs):
         self.data=data
     def __getitem__(self,i):
+
+
         self.lista_claves=[]
         self.lista_valores=[]
         self.lista_columnas=[]
         self.lista_filas=[]
         self.diccionario={}
+
+
         try:
             j=list(i)
         except:
@@ -240,13 +241,5 @@ def read_csv(arch, sep=','):
             data[titulos[i]].append(elem)
     return DataFrame(data)
     
-            
-    
-    
-
-
-
-
-
 
 

@@ -1,0 +1,5 @@
+Est_act,Entrada,Est_sig,Salida, _index
+0,0,0,0,ren1
+0,1,1,0,ren2
+1,0,0,0,ren3
+1,1,1,1,ren4
