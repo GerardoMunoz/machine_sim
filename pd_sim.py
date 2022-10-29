@@ -82,22 +82,20 @@ class Iloc:
             print(self.diccionario)
 
         if (isinstance(j[0],slice))&(j[1].start==None)&(j[1].stop==None)&(j[1].step==None):
-            titulos=self.data.keys()
-            for k in titulos:
+            for k in range(len(self.lista_claves)):
                 self.lista_columnas=self.data[self.lista_claves[k]]
                 self.lista_filas=[]
-                for h in range(j[0].start,j[0].stop):
+                for h in range(j[0].start, j[0].stop):
                     self.lista_filas.append(self.lista_columnas[h])
                     self.diccionario[self.lista_claves[k]] = self.lista_filas
             print(self.diccionario)
         
         if (isinstance(j[1],slice))&(j[0].start==None)&(j[0].stop==None)&(j[0].step==None):
-            titulos=self.data.keys()
-            for k in titulos:
+            for k in range(j[1].start,j[1].stop):
                 self.lista_columnas=self.data[self.lista_claves[k]]
                 self.lista_filas=[]
-                for h in range(j[0].start, j[0].stop):
-                    self.lista_filas.append(self.lista_columnas[h])
+                for h in range(len(self.lista_valores)):
+                    self.lista_filas.append(self.lista_valores[h])
                     self.diccionario[self.lista_claves[k]] = self.lista_filas
             print(self.diccionario)
 
