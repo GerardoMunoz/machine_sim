@@ -316,6 +316,20 @@ class DataFrame:
         #if not _only_numbers:
 
         print(_dict_describe)
+        
+    def __gt__ (self,other):
+        a=self.data
+        for titulo in a:
+            for elem in titulo:
+                for elem,i in enumerate(titulo):
+                    if (elem>other):
+                        a [titulo][i]=elem 
+                    else:
+                        a[titulo][i]=None
+        return DataFrame(a)
+ 
+
+
 
 def read_csv(arch, sep=','):
     arch = open(arch)
