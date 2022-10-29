@@ -1,3 +1,5 @@
+from itertools import count
+from decorador import table_decorador
 
 seleccion_titulo = []
 seleccion_valor = []
@@ -246,6 +248,37 @@ class DataFrame:
         values = dict.values(d.data)
         print("Llaves: "+str(keys)+"\n\nValores: "+str(values)+"\n", end="\n\n")
 
+    
+    def describe(self):
+        data = self.data
+        _dict_describe = {}
+        _list_values = []
+        _list_values_count = []
+        _list_values_only_numbers = []
+        titles = data.keys()
+        for _, new_val in self.data.items():
+            _list_values.append([item for item in new_val if item])
+            _list_values_count.append(len([item for item in new_val if item]))
+        for i in range(0, len(_list_values)):
+            _list = []
+            for j in _list_values[i]:
+                _list.append(j.isnumeric())
+            _list_values_only_numbers.append(_list)
+        
+        for x in _list_values_only_numbers:
+            global _only_numbers
+            _only_numbers = False
+            if x.count(True):
+                _only_numbers = True
+        for i in range(-1, len(_list_values)):
+            for title in titles:
+                for key, value in data.items():
+                    if key == title:
+                        _dict_describe[title] = []
+                        _dict_describe[title].append(_list_values_count[i])
+        #if not _only_numbers:
+
+        print(_dict_describe)
 
 def read_csv(arch, sep=','):
     arch = open(arch)

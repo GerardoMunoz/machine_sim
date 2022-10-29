@@ -12,7 +12,7 @@ print(data_frame2)
 print()
 
 print(data_frame1.head())
-error print(data_frame2.head())
+# error print(data_frame2.head())
 
 print()
 
@@ -86,14 +86,14 @@ print(data_frame1.iloc[3])
 # print()
 
 # #data_frame1_a=data_frame1.copy()
-print(data_frame1_a)
+# print(data_frame1_a)
 # #error data_frame2_a=data_frame2.copy()
 # #error print(data_frame2_a)
 
 # print()
 
 # #data_frame1_a['Est_act'] = 0
-print(data_frame1_a)
+# print(data_frame1_a)
 # #data_frame2['Est_act'] = 0
 print(data_frame2)
 
@@ -144,3 +144,11 @@ print(data_frame2.iloc.seleccion_valor)
 #Test JhonatanMJ1127
 # print(Jhonatan.index)
 # print()
+
+
+#michael063
+#Describe alguno datos de la tabla
+describe_pd1 = data_frame1.describe()
+describe_pd2 = data_frame2.describe()
+
+print(describe_pd1)
