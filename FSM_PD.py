@@ -104,13 +104,13 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 #Función de selección de datos Iloc
 print("\nIloc selección entero y slice - Oscar Poblador 20211005116")
 print("\nPRUEBA CON PÁRAMETRO ENTERO")
-data_frame2.iloc[2]
+data_frame2.iloc[0]
 print("\n")
 print("\nValores seleccionados")
 print(data_frame2.iloc.seleccion_titulo)
 print(data_frame2.iloc.seleccion_valor)
 print("\nPRUEBA CON PÁRAMETRO SLICE")
-data_frame2.iloc[1:3,0:2]
+data_frame2.iloc[1:2,1:3] #Datos - Titulos]
 print("\nValores seleccionados")
 print("\n")
 print(data_frame2.iloc.seleccion_titulo)
@@ -120,14 +120,14 @@ print(data_frame2.iloc.seleccion_valor)
 #Test función 3 iloc
 #Juan David Bello Rodríguez - 20211005028
 
-data_frame2.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
-data_frame2.iloc[1,2]
+# data_frame2.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
+# data_frame2.iloc[1,2]
 
 
-#Test función 4 iloc
-#Manuel Alejandro Guio Cardona - 20211005061
-data_frame2.iloc[1:2, : ]
-data_frame2.iloc[ : ,1:2]
+# #Test función 4 iloc
+# #Manuel Alejandro Guio Cardona - 20211005061
+# data_frame2.iloc[0:2, : ]
+# data_frame2.iloc[ : ,1:2]
 
 
 

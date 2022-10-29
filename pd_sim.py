@@ -26,16 +26,18 @@ class Iloc:
             j=list(i)
         except:
             j=[0]
-        l=0
-        g=0
+        
 
         for clave in self.data:   #Para poder recorrer las posiciones
             self.lista_claves.append(clave)
         self.lista_valores=list(self.data.values())
 
         try:
-            if (isinstance(j[0],slice))&(j[1].start!=None)&(j[1].stop!=None)&(j[1].step!=None):
-                print(j)
+            
+            if (isinstance(j[0],slice))&(j[1].start!=None)&(j[1].stop!=None):
+                l=0
+                g=0
+                
                 titulos=self.data.keys()
                 self.seleccion_titulo.clear()
                 self.seleccion_valor.clear()
@@ -43,13 +45,15 @@ class Iloc:
                 if (isinstance(j[1],slice)):
                     for k in titulos:
                         valores=self.data[k]
+                        
                         if (l>=j[1].start)&(l<j[1].stop):
+
                             self.seleccion_titulo.append(k)
                             print("\nTitulo: ",k)
                             for g in range(j[0].start,j[0].stop):
                                 self.seleccion_valor.append(valores[g])
                                 print("Dato solicitado ",g,": ",valores[g])
-                    l=l+1
+                        l=l+1
                 if (isinstance(j[0],slice) & isinstance(j[1],slice))&(j[1].start!=None)&(j[1].stop!=None)&(j[1].step!=None):
                     for k in range(j[1].start,j[1].stop):
                         self.lista_columnas=self.data[self.lista_claves[k]]
