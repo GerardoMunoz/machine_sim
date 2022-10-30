@@ -1,7 +1,7 @@
 #import pandas as pd1
 import pd_sim as pd2
 
-nombre_archivo = 'FSM_dosUnosSeguidos.csv'
+nombre_archivo = "FSM_dosUnosSeguidos.csv"
 
 #data_frame1 = pd1.read_csv(nombre_archivo)
 data_frame2 = pd2.read_csv(nombre_archivo)
@@ -108,7 +108,7 @@ print("\nIloc selección entero y slice - Oscar Poblador 20211005116")
 print("\nPRUEBA CON PÁRAMETRO ENTERO")
 data_frame2.iloc[2]
 print("\nPRUEBA CON PÁRAMETRO DE 2 SLICE")
-data_frame2.iloc[1:4,1:3] #Datos - Titulos]
+data_frame2.iloc[0:3,1:4] #Datos - Titulos]
 
 
 
@@ -117,9 +117,9 @@ data_frame2.iloc[1:4,1:3] #Datos - Titulos]
 
 #Test función 3 iloc
 #Juan David Bello Rodríguez - 20211005028
-
-# data_frame2.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
-# data_frame2.iloc[1,2]
+print("\nIloc selección con slice y listas - Juan David Bello Rodríguez 20211005028")
+data_frame2.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
+data_frame2.iloc[1,2]
 
 
 
@@ -128,27 +128,12 @@ data_frame2.iloc[1:4,1:3] #Datos - Titulos]
 #Test función 4 iloc
 #Manuel Alejandro Guio Cardona - 20211005061
 
-# print("\nIloc seleccion slice y slice completo - Manuel Guio 20211005061")
+print("\nIloc seleccion slice y slice completo - Manuel Guio 20211005061")
 
-# colum = str(data_frame2.iloc.lista_columnas)
-
-# fil = str (data_frame2.iloc.lista_filas)
-
-# print("\nPrueba con slice en columnas (derecha), imprime todas las filas")
-# data_frame2.iloc[ : ,1:3]
-
-# # print("\nValores seleccionados")
-# # print("Columnas: "+ colum)
-# # print("Filas: "+ fil)
-
-# print("\nPrueba con slice en filas (izquierda), imprime todas las columnas ")
-# data_frame2.iloc[1:3, : ]
-
-# # print("\nValores seleccionados")
-
-# # print("Columnas: "+ colum)
-# # print("Filas: "+ fil)
+print("\nPrueba con slice en columnas (derecha), imprime todas las filas")
+data_frame2.iloc[ : ,1:3]
 
 
-
+print("\nPrueba con slice en filas (izquierda), imprime todas las columnas ")
+data_frame2.iloc[1:3, : ]
 
