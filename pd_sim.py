@@ -1,5 +1,7 @@
 
 from multiprocessing.resource_sharer import stop
+
+
 class Iloc:
     '''
     Oscar Poblador
@@ -11,16 +13,15 @@ class Iloc:
     seleccion_titulo=[]
     seleccion_valor=[]
 
+
     def __init__(self,data,*args,**kwargs):
         self.data=data
     def __getitem__(self,i):
-
         self.lista_claves=[]
         self.lista_valores=[]
         self.lista_columnas=[]
         self.lista_filas=[]
         self.diccionario={}
-
         try:
             j=list(i)
         except:
@@ -90,6 +91,7 @@ class Iloc:
 
             if (isinstance(j[0], list) & isinstance(j[1], list)): #Función 3 iloc
                 print("entro2")
+                print(j)
                 for i in j[1]:
                     self.lista_columnas=self.data[self.lista_claves[i]]
                     self.lista_filas=[]
@@ -98,10 +100,12 @@ class Iloc:
                     self.diccionario[self.lista_claves[i]] = self.lista_filas
                 print(self.diccionario)
 
-            if (isinstance(j[0], int) &  isinstance(j[1], int)): #Función 6 iloc
-                print("entro3")
+            if (isinstance(j[0], int)) &  (isinstance(j[1], int)): #Función 6 iloc
+                print(j)
                 self.lista_columnas=self.data[self.lista_claves[j[1]]]
+                print(self.lista_columnas)
                 self.lista_filas=[self.lista_columnas[j[0]]]
+                print(self.lista_filas)
                 self.diccionario[self.lista_claves[j[1]]]=self.lista_filas
                 print(self.diccionario)    
 
@@ -230,5 +234,3 @@ def read_csv(arch, sep=','):
             data[titulos[i]].append(elem)
     return DataFrame(data)
     
-
-
