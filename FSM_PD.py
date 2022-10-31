@@ -97,43 +97,32 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 # #print(-data_frame1)
 # print(-data_frame2)
 
-# print()
+#Test función 1 y 2 iloc
+#Oscar David Poblador Parra- 20211005116
+# print("\nIloc selección entero y slice - Oscar Poblador 20211005116")
+# print("\nPrueba con parámetro entero)
+# data=data_frame2.iloc[2]
+# print(data)
+# #print("\nPreuba con parámetro de 2 slices")
+# data=data_frame2.iloc[0:3,1:4] 
+# print(data)
 
-
-#Oscar David Poblador Parra - 20211005116
-#Función de selección de datos Iloc
-
-
-print("\nIloc selección entero y slice - Oscar Poblador 20211005116")
-print("\nPRUEBA CON PÁRAMETRO ENTERO")
-data_frame2.iloc[2]
-print("\nPRUEBA CON PÁRAMETRO DE 2 SLICE")
-data_frame2.iloc[0:3,1:4] #Datos - Titulos]
-
-
-
-
-
-
-#Test función 3 iloc
+#Test función 3 y 6 iloc
 #Juan David Bello Rodríguez - 20211005028
-print("\nIloc selección con slice y listas - Juan David Bello Rodríguez 20211005028")
-data_frame2.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
-data_frame2.iloc[1,2]
+# print("\nIloc selección con lista y listas - Juan David Bello Rodríguez 20211005028")
+# print("\nPrueba con 2 listas de valores en columnas y en filas")
+# data=data_frame2.iloc[[1,3],[1,3]] 
+# print(data)
+# print("\nPrueba una lista que tiene una fila y columna especifica")
+# data=data_frame2.iloc[3,1]
+# print(data)
 
-
-
-
-
-#Test función 4 iloc
+#Test función 4 y 5 iloc
 #Manuel Alejandro Guio Cardona - 20211005061
-
-print("\nIloc seleccion slice y slice completo - Manuel Guio 20211005061")
-
-print("\nPrueba con slice en columnas (derecha), imprime todas las filas")
-data_frame2.iloc[ : ,1:3]
-
-
-print("\nPrueba con slice en filas (izquierda), imprime todas las columnas ")
-data_frame2.iloc[1:3, : ]
-
+# print("\nIloc seleccion slice y slice completo - Manuel Guio 20211005061")
+# print("\nPrueba con slice en columnas (derecha), imprime todas las filas")
+# data=data_frame2.iloc[ : ,0:2]
+# print(data)
+# print("\nPrueba con slice en filas (izquierda), imprime todas las columnas")
+# data=data_frame2.iloc[0:2, : ]
+# print(data)

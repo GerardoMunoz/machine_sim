@@ -14,8 +14,8 @@ class Iloc:
 
     def __init__(self,data,*args,**kwargs):
         self.data=data
-    def __getitem__(self,i):
 
+    def __getitem__(self,i):
 
         self.lista_claves=[]
         self.lista_valores=[]
@@ -23,12 +23,10 @@ class Iloc:
         self.lista_filas=[]
         self.diccionario={}
 
-
         try:
             j=list(i)
         except:
             j=[0]
-        
 
         for clave in self.data:   #Para poder recorrer las posiciones
             self.lista_claves.append(clave)
@@ -37,13 +35,11 @@ class Iloc:
         try:
             
             if(isinstance(j[1],slice))&(j[0].start==None)&(j[0].stop==None)&(j[0].step==None):
+
                 for k in range(j[1].start,j[1].stop):
-                    self.lista_columnas=self.data[self.lista_claves[k]]
-                    self.lista_filas=[]
-                    for h in range(len(self.lista_valores)):
-                        self.lista_filas.append(self.lista_valores[h])
-                        self.diccionario[self.lista_claves[k]] = self.lista_filas
-                print(self.diccionario)
+                    for h in range(j[1].start,j[1].stop):
+                        self.diccionario[self.lista_claves[k]] = self.data[self.lista_claves[k]]
+
             if (isinstance(j[0],slice))&(j[1].start==None)&(j[1].stop==None)&(j[1].step==None):
                 for k in range(len(self.lista_claves)):
                     self.lista_columnas=self.data[self.lista_claves[k]]
@@ -51,7 +47,7 @@ class Iloc:
                     for h in range(j[0].start, j[0].stop):
                         self.lista_filas.append(self.lista_columnas[h])
                         self.diccionario[self.lista_claves[k]] = self.lista_filas
-                print(self.diccionario)
+
             if (isinstance(j[0],slice))&(j[1].start!=None)&(j[1].stop!=None):
                 l=0
                 g=0
@@ -60,6 +56,7 @@ class Iloc:
                 self.seleccion_titulo.clear()
                 self.seleccion_valor.clear()
                 titulos=self.data.keys()
+
                 if (isinstance(j[1],slice)):
                     for k in titulos:
                         valores=self.data[k]               
@@ -72,19 +69,18 @@ class Iloc:
                             
                             self.seleccion_valor.clear()
                         l=l+1
-                    print(self.diccionario)
 
                 if (isinstance(j[0],slice) & isinstance(j[1],slice))&(j[1].start!=None)&(j[1].stop!=None)&(j[1].step!=None):
+
                     for k in range(j[1].start,j[1].stop):
                         self.lista_columnas=self.data[self.lista_claves[k]]
                         self.lista_filas=[]
                         for h in j[0]:
                             self.lista_filas.append(self.lista_columnas[h])
                             self.diccionario[self.lista_claves[k]] = self.lista_filas
-                    print(self.diccionario)
-
             
         except:
+
             if isinstance (i,int):
                 
                 self.seleccion_titulo.clear()
@@ -95,9 +91,7 @@ class Iloc:
                     self.seleccion_titulo.append(j)
                     self.seleccion_valor.append(valores[i])
                     self.diccionario[j] = valores[i]
-                print(self.diccionario)
                 
-
             if (isinstance(j[0], list) & isinstance(j[1], list)): #Función 3 iloc
                 
                 for i in j[1]:
@@ -106,16 +100,14 @@ class Iloc:
                     for k in j[0]:
                         self.lista_filas.append(self.lista_columnas[k])
                     self.diccionario[self.lista_claves[i]] = self.lista_filas
-                print(self.diccionario)
 
             if (isinstance(j[0], int)) &  (isinstance(j[1], int)): #Función 6 iloc
                 
                 self.lista_columnas=self.data[self.lista_claves[j[1]]]
-                
                 self.lista_filas=[self.lista_columnas[j[0]]]
-                
                 self.diccionario[self.lista_claves[j[1]]]=self.lista_filas
-                print(self.diccionario)    
+
+        return DataFrame(self.diccionario)
 
             
 class DataFrame:
