@@ -9,6 +9,12 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 # print(data_frame1)
 # print(data_frame2)
 
+
+
+# #print(data_frame1)
+# print(data_frame2)
+
+
 # print()
 
 # print(data_frame1.head())
@@ -36,6 +42,15 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 # #error print(data_frame2.T())
 
 # print()
+
+
+# #print(data_frame1.T)
+# print(data_frame2.T)
+# #error print(data_frame2.T())
+
+
+# print()
+
 
 # #print(data_frame1.sort_index(axis=1, ascending=False))
 # #error print(data_frame2.sort_index(axis=1, ascending=False))
@@ -170,9 +185,42 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 # #Test Funcion Manuel Guio 
 # #Manuel Alejandro Guio Cardon - 20211005061
 # #Funcion seleccion por columnas y filas
+#Oscar David Poblador Parra - 20211005116
+#Función de selección de datos Iloc
+# print("\nIloc seleccion entero y slice - Oscar Poblador 20211005116")
+# print("\nPRUEBA CON PARAMETRO ENTERO")
+# data_frame2.iloc[2]
+# print("\n")
+# print("\nValores seleccionados")
+# print(data_frame2.iloc.seleccion_titulo)
+# print(data_frame2.iloc.seleccion_valor)
+# print("\nPRUEBA CON PARAMETRO SLICE")
+# data_frame2.iloc[1:3,0:2]
+# print("\nValores seleccionados")
+# print("\n")
+# print(data_frame2.iloc.seleccion_titulo)
+# print(data_frame2.iloc.seleccion_valor)
 
-# data_frame1.iloc[1,3]
-# data_frame2.iloc[1,3]
+
+# # data_frame1.iloc[1,3]
+# # data_frame2.iloc[1,3]
+
+# #Test función 3 iloc
+# #Juan David Bello Rodríguez - 20211005028
+
+# data_frame2.iloc[[1,2],[1,2]] #Selecciona filas y columnas y las imprime
+# data_frame2.iloc[1,2]
+
+
+# #Test función 4 iloc
+# #Manuel Alejandro Guio Cardona - 20211005061
+# print("\nIloc seleccion slice y slice completo - Manuel Guio 20211005061")
+
+# print("\nPrueba con slice en columnas (derecha), imprime todas las filas")
+# data_frame2.iloc[ : ,1:3]
+
+# print("\nPrueba con slice en filas (izquierda), imprime todas las columnas ")
+# data_frame2.iloc[1:3, : ]
 
 
 
@@ -198,3 +246,4 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 #  0.721555, -0.706771, -1.039575,  0.271860
 # -0.424972,  0.567020,  0.276232, -1.087401
 # -0.673690,  0.113648, -1.478427,  0.524988
+

@@ -21,19 +21,31 @@ class Loc:
 
 
 class Iloc:
-    seleccion_titulo = []
-    seleccion_valor = []
 
     lista_claves = []
     lista_valores = []
     lista_columnas = []
     lista_filas = []
     diccionario = {}
+    '''
+    Oscar Poblador
+    Juan Rodriguez
+    Manuel Guio
+    Crea listas de selección con los elementos solicitados
+    uso: df2.iloc[3:5,0:2] =  titulo 1 : dato 3 y datos 4, titulo 2: dato 3 y dato 4
+    '''
+    seleccion_titulo=[]
+    seleccion_valor=[]
 
-    def __init__(self, data, *args, **kwargs):
-        self.data = data
 
-    def __getitem__(self, i):
+    def __init__(self,data,*args,**kwargs):
+        self.data=data
+    def __getitem__(self,i):
+        self.lista_claves=[]
+        self.lista_valores=[]
+        self.lista_columnas=[]
+        self.lista_filas=[]
+        self.diccionario={}
         try:
             j = list(i)
         except:
@@ -45,57 +57,83 @@ class Iloc:
             self.lista_claves.append(clave)
         self.lista_valores = list(self.data.values())
 
-        if isinstance(j[0], slice):
-            titulos = self.data.keys()
-            self.seleccion_titulo.clear()
-            self.seleccion_valor.clear()
-            titulos = self.data.keys()
-            if (isinstance(j[1], slice)):
-                for k in titulos:
-                    valores = self.data[k]
-                    if (l >= j[1].start) & (l < j[1].stop):
-                        self.seleccion_titulo.append(k)
-                        print("\nTitulo: ", k)
-                        for g in range(j[0].start, j[0].stop):
-                            self.seleccion_valor.append(valores[g])
-                            print("Dato solicitado ", g, ": ", valores[g])
-                l = l+1
+        try:
+            if (isinstance(j[0],slice))&(j[1].start!=None)&(j[1].stop!=None)&(j[1].step!=None):
+                print(j)
+                titulos=self.data.keys()
+                self.seleccion_titulo.clear()
+                self.seleccion_valor.clear()
+                titulos=self.data.keys()
+                if (isinstance(j[1],slice)):
+                    for k in titulos:
+                        valores=self.data[k]
+                        if (l>=j[1].start)&(l<j[1].stop):
+                            self.seleccion_titulo.append(k)
+                            print("\nTitulo: ",k)
+                            for g in range(j[0].start,j[0].stop):
+                                self.seleccion_valor.append(valores[g])
+                                print("Dato solicitado ",g,": ",valores[g])
+                    l=l+1
+                if (isinstance(j[0],slice) & isinstance(j[1],slice))&(j[1].start!=None)&(j[1].stop!=None)&(j[1].step!=None):
+                    for k in range(j[1].start,j[1].stop):
+                        self.lista_columnas=self.data[self.lista_claves[k]]
+                        self.lista_filas=[]
+                        for h in j[0]:
+                            self.lista_filas.append(self.lista_columnas[h])
+                            self.diccionario[self.lista_claves[k]] = self.lista_filas
+                    print(self.diccionario)
 
-        if isinstance(i, int):
-            self.seleccion_titulo.clear()
-            self.seleccion_valor.clear()
-            titulos = self.data.keys()
-            for j in titulos:
-                valores = self.data[j]
-                self.seleccion_titulo.append(j)
-                print("\nTitulo: ", j)
-                self.seleccion_valor.append(valores[i])
-                print("Dato solicitado: ", valores[i])
+            if (isinstance(j[0],slice))&(j[1].start==None)&(j[1].stop==None)&(j[1].step==None):
+                for k in range(len(self.lista_claves)):
+                    self.lista_columnas=self.data[self.lista_claves[k]]
+                    self.lista_filas=[]
+                    for h in range(j[0].start, j[0].stop):
+                        self.lista_filas.append(self.lista_columnas[h])
+                        self.diccionario[self.lista_claves[k]] = self.lista_filas
+                print(self.diccionario)
+            
+            if (isinstance(j[1],slice))&(j[0].start==None)&(j[0].stop==None)&(j[0].step==None):
+                for k in range(j[1].start,j[1].stop):
+                    self.lista_columnas=self.data[self.lista_claves[k]]
+                    self.lista_filas=[]
+                    for h in range(len(self.lista_valores)):
+                        self.lista_filas.append(self.lista_valores[h])
+                        self.diccionario[self.lista_claves[k]] = self.lista_filas
+                print(self.diccionario)
 
-        if (isinstance(i[0], int) & isinstance(i[1], int)):  # Función 6 iloc
-            self.lista_columnas = self.data[self.lista_claves[i[1]]]
-            self.lista_filas = [self.lista_columnas[i[0]]]
-            self.diccionario[self.lista_claves[i[1]]] = self.lista_filas
-            print(self.diccionario)
+        except:
+            if isinstance (i,int):
+                self.seleccion_titulo.clear()
+                self.seleccion_valor.clear()
+                titulos=self.data.keys()
+                for j in titulos:
+                    valores=self.data[j]
+                    self.seleccion_titulo.append(j)
+                    print ("\nTitulo: ", j)
+                    self.seleccion_valor.append(valores[i])
+                    print("Dato solicitado: ",valores[i])
 
-        if (isinstance(j[0], list) & isinstance(j[1], list)):  # Función 3 iloc
-            for i in j[1]:
-                self.lista_columnas = self.data[self.lista_claves[i]]
-                self.lista_filas = []
-                for k in j[0]:
-                    self.lista_filas.append(self.lista_columnas[k])
-                self.diccionario[self.lista_claves[i]] = self.lista_filas
-            print(self.diccionario)
+            if (isinstance(j[0], list) & isinstance(j[1], list)): #Función 3 iloc
+                print("entro2")
+                print(j)
+                for i in j[1]:
+                    self.lista_columnas=self.data[self.lista_claves[i]]
+                    self.lista_filas=[]
+                    for k in j[0]:
+                        self.lista_filas.append(self.lista_columnas[k])
+                    self.diccionario[self.lista_claves[i]] = self.lista_filas
+                print(self.diccionario)
 
-        if (isinstance(i, list)):  # Función 3 iloc (La función da error si recibe una lista de 1 elemento)
-            for h in self.lista_claves:
-                self.lista_columnas = self.data[h]
-                self.lista_filas = []
-                for k in i:
-                    self.lista_filas.append(self.lista_columnas[k])
-                self.diccionario[h] = self.lista_filas
-            print(self.diccionario)
+            if (isinstance(j[0], int)) &  (isinstance(j[1], int)): #Función 6 iloc
+                print(j)
+                self.lista_columnas=self.data[self.lista_claves[j[1]]]
+                print(self.lista_columnas)
+                self.lista_filas=[self.lista_columnas[j[0]]]
+                print(self.lista_filas)
+                self.diccionario[self.lista_claves[j[1]]]=self.lista_filas
+                print(self.diccionario)    
 
+            
 
 class Iat(object):
     def __init__(self, data, *args, **kwargs):
@@ -109,7 +147,6 @@ class Iat(object):
     def __setitem__(self, nums, valor):
         row, column = nums
         self.data[row][column] = valor
-
 
 class DataFrame:
 
