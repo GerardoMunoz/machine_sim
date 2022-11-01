@@ -147,15 +147,13 @@ class DataFrame:
     def __setitem__(indice, valor):
         pass
 
-    def head( self,n=5):
-        for column_title in list(self.data.keys()): 
+    def head(self, n=5):
+        for column_title in list(self.data.keys()):
             print(self.data[column_title][:n])
-        
-    def tail( self,n=-5):
-        for column_title in list(self.data.keys()): 
+
+    def tail(self, n=-5):
+        for column_title in list(self.data.keys()):
             print(self.data[column_title][n:])
-        
-        
 
     def T(self, d):
         # print("Hola Mundo"
@@ -216,6 +214,22 @@ class DataFrame:
         columna = diccionario.keys()
         fila_nueva = []
         diccionario_nuevo[columna] = fila_nueva
+    # Nicolas Arevalo 20202005024
+    # Crear el comando copy
+
+    def iat(self, row, column):
+        a = self.data
+        b = a[row]
+        c = b[column]
+        print(c)
+
+    def funcion_tail(arch, n, sep=';'):
+        with open(arch) as f:
+            lineas = [lineas.strip('\n') for lineas in f.readlines()]
+        return lineas[-n:]
+
+    def copy(arch, sep=';'):
+        arch = open(arch)
 
     # Funcion encargada de localizar filas y columnas del documento e identificar si la entrada es un int,str o slice. Imprimiendo los datos.
 
@@ -326,6 +340,19 @@ class DataFrame:
                     else:
                         a[titulo][i] = None
         return DataFrame(a)
+
+    def _getitem_(self, item):
+
+        diccionarrio = self.data
+        nuevo_diccionario = {}
+
+        if isinstance(item, int):
+            print(item)
+            return nuevo_diccionario[item]
+
+        if isinstance(item, slice):
+            print(item)
+            return nuevo_diccionario[item]
 
 
 def read_csv(arch, sep=','):
