@@ -114,24 +114,30 @@ class Iat(object):
 class DataFrame:
 
     def __init__(self, data, index=None, *args, **kwargs):
-        self.data = data  # Es un diccionario de la siguiente forma:
-        '''
-        {
-            Titulo1 : [elem11,elem12,elem13,...],
-            Titulo2 : [elem21,elem22,elem23,...],
-            Titulo3 : [elem31,elem32,elem33,...],
-            ...
-        }
-        '''
-        if isinstance(data, dict):
-            for primer_titulo in data.keys():
-                break  # truco para obtener la primera llave del diccionario
+        """Devuelve los datos como string
+        >>> df = DataFrame({'T1':[1,2],'T2':[3,4]})
+        >>> df #print(df)
+        {'T1': [1, 2], 'T2': [3, 4]}
+        >>> df.titles
+        ['T1', 'T2'] 
+        >>> df.index
+        [0, 1]
+        """
+        
+ 
+        if isinstance(data,dict):
+            self.data = data  
+        elif isinstance(data,list):
+            self.data = {i:val for i,val in enumerate(data)}
         else:
-            primer_titulo = 0
-        # es una lista con el nombre de los indices
-        self.index = index if index else list(range(len(data[primer_titulo])))
+            raise Exception('Sólo se aceptan dict como {"T1": [1, 2], "T2": [3, 4]} o list, pero se recibió '+ str(data) )
 
-    @table_decorador.table
+        self.titles = list(data.keys())
+
+        # index es una lista con el nombre de los indices
+        self.index = index if index else list(range(len(data[self.titles[0]])))
+
+    #@table_decorador.table
     def __str__(self):
 
         return str(self.data)+('\nindices: '+str(self.index) if self.index else '')
