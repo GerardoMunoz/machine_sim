@@ -142,17 +142,31 @@ uso: df[a,b] devuelve la fila 'a' y la columna 'b' de una matriz '''
 
 
 class Iat(object):
+    '''
+    ###  DOCUMENTACION .IAT ###
+    El método Pandas iat[] se utiliza para devolver datos en un marco de datos en la ubicación pasada. 
+    La ubicación pasada tiene el formato [fila, columna]. 
+    iat[] se usa para devolver solo un valor.
+    '''
     def __init__(self, data, *args, **kwargs):
         self.data = data
-
+    '''
+    El metodo __init__  inicializa los atributos del objeto (data).
+    '''
     def __getitem__(self, nums):  # Obtiene los indices de fila y columna
         row, column = nums
-        return self.data[row][column]
+        return self.data[row][column]    
+    '''
+    El método __getItem__ devuelve los indices del dataframe, los incluye en la variable nums.
+    de nums se saca la posición de la fila y de la columna
+    '''
 
     def __setitem__(self, nums, valor):
         row, column = nums
         self.data[row][column] = valor
-
+    '''
+    El método __setItem__ se usa para colocar un dato en el dataframe en la fila y columna seleccionada
+    '''
 
 class DataFrame:
 
