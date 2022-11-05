@@ -254,7 +254,7 @@ class DataFrame:
 
     def tail(self, n=-5):
 
-        FABIAN LEONARDO CAMARGO BERNATE 
+        
 
 ''' Argumentos:
 ------------------
@@ -296,6 +296,7 @@ EJEMPLO
 0,       0,       0,       0
 0,       0,       0,       0
 0,       0,       0,       0 '
+
 '''
 for column_title in list(self.data.keys()):
          print(self.data[column_title][n:])
