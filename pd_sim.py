@@ -51,7 +51,7 @@ class Iloc:
         rango de datos y el segundo slice define el rango de los títulos 
         >>> df=DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
         >>> df #print(df1)
-        DataFrame(({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]}))
+        DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
         >>> df.iloc[2]
         ({'Est_act':[1], 'Entrada':[0], 'Est_sig':[0], 'Salida1':[0]})
         >>> df.iloc[0:3,1:4] #Rango de datos, rango de títulos
@@ -180,7 +180,7 @@ class DataFrame:
         # >>> df.index
         # [0, 1]
         # """
-        # self.data=data
+        self.data=data
         self.iloc=Iloc(self.data)
         
  
@@ -263,6 +263,9 @@ class DataFrame:
 
     def __setitem__(indice, valor):
         pass
+    def __repr__(self):
+
+        return 'DataFrame('+repr(self.data)+')'
 
     def head(self, n=5):
         for column_title in list(self.data.keys()):
@@ -310,21 +313,7 @@ class DataFrame:
 
                 l = l+1
 
-    # Realizar lecturas según su posición
 
-    def iloc(self, i):
-        if isinstance(i, slice):
-            print("lo logramos")
-        if isinstance(i, int):
-            seleccion_titulo.clear()
-            seleccion_valor.clear()
-            titulos = self.data.keys()
-            for j in titulos:
-                valores = self.data[j]
-                seleccion_titulo.append(j)
-                print("\nTitulo: ", j)
-                seleccion_valor.append(valores[i])
-                print("Dato solicitado: ", valores[i])
 
     # 20202005024
     # Crear el comando que agrege una nueva columna
