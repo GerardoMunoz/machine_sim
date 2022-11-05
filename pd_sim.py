@@ -49,14 +49,12 @@ class Iloc:
         Al ingresar un entero en el parámetro i se selección todos los datos en la posición i junto con su correspondiente título o kye 
         Al ingresar un slice en el parámetro i se enlista en j y se seleccionan los datos según los parámetro.  El primer slice define el 
         rango de datos y el segundo slice define el rango de los títulos 
-        >>> df1=Dataframe({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
-        >>> df1 #print(df1)
-        Dataframe(({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]}))
-        >>> df1.iloc[2]
-        >>> df1
+        >>> df=DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
+        >>> df #print(df1)
+        DataFrame(({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]}))
+        >>> df.iloc[2]
         ({'Est_act':[1], 'Entrada':[0], 'Est_sig':[0], 'Salida1':[0]})
-        >>> df1,iloc[0:3,1:4] #Rango de datos, rango de títulos
-        >>> df1
+        >>> df.iloc[0:3,1:4] #Rango de datos, rango de títulos
         {'Entrada': [0, 1, 0], 'Est_sig': [0, 1, 0], 'Salida1': [0, 0, 0]}
         '''
 
@@ -173,16 +171,16 @@ class Iat(object):
 class DataFrame:
 
     def __init__(self, data, index=None, *args, **kwargs):
-        """Devuelve los datos como string
-        >>> df = DataFrame({'T1':[1,2],'T2':[3,4]})
-        >>> df #print(df)
-        {'T1': [1, 2], 'T2': [3, 4]}
-        >>> df.titles
-        ['T1', 'T2'] 
-        >>> df.index
-        [0, 1]
-        """
-        self.data=data
+        # """Devuelve los datos como string
+        # >>> df = DataFrame({'T1':[1,2],'T2':[3,4]})
+        # >>> df #print(df)
+        # {'T1': [1, 2], 'T2': [3, 4]}
+        # >>> df.titles
+        # ['T1', 'T2'] 
+        # >>> df.index
+        # [0, 1]
+        # """
+        # self.data=data
         self.iloc=Iloc(self.data)
         
  
