@@ -406,19 +406,28 @@ class DataFrame:
         print("Llaves: "+str(keys)+"\n\nValores: "+str(values)+"\n", end="\n\n")
 
     def describe(self):
+        """ 
+            Parametros: Recibe un objeto tipo DataFrame
+            Descripcion: Realiza el conteo de los datos por columna, el valor minino y el maximo del DataFrame recibido
+                Michael Andres Olivares Herrera cod -> 20212005063
+                >>> df = DataFrame({'T1': [1,2], 'T2': [3,4]})
+                >>> df.describe()
+                {'T1': [2, 1.5, 1, 2], 'T2': [2, 3.5, 3, 4]}
+        """
         data = self.data
         _dict_describe = {}
         _list_values = []
         _list_values_count = []
         _list_values_only_numbers = []
         titles = data.keys()
-        for _, new_val in self.data.items():
-            _list_values.append([item for item in new_val if item])
-            _list_values_count.append(len([item for item in new_val if item]))
+        for _, new_val in data.items():
+            _list_values.append([item for item in new_val if str(item)])
+        for i in _list_values:
+            _list_values_count.append(len(i))
         for i in range(0, len(_list_values)):
             _list = []
             for j in _list_values[i]:
-                _list.append(j.isnumeric())
+                _list.append(j)
             _list_values_only_numbers.append(_list)
 
         for x in _list_values_only_numbers:
@@ -426,15 +435,22 @@ class DataFrame:
             _only_numbers = False
             if x.count(True):
                 _only_numbers = True
-        for i in range(-1, len(_list_values)):
+        for i in range(len(_list_values)):
             for title in titles:
-                for key, value in data.items():
-                    if key == title:
+                if not title in _dict_describe:
                         _dict_describe[title] = []
+                for key, value in data.items():
+                    if key == title and  _dict_describe[title] == []:
+                        count = 0
                         _dict_describe[title].append(_list_values_count[i])
+                        for j in value:
+                            count += j
+                        _dict_describe[title].append(count / len(value))
+                        _dict_describe[title].append(min(value))
+                        _dict_describe[title].append(max(value))
         # if not _only_numbers:
-
-        print(_dict_describe)
+        # print('prueba', _dict_describe)
+        return _dict_describe
 
     def __gt__(self, other):
         a = self.data
