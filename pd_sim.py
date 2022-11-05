@@ -250,27 +250,28 @@ class DataFrame:
 
     def head(self, n=5):
 
-    '''
-     Argumentos:
-     Self:Diccionario dentro del cual se enceuntran los datos
-     n: numero de dato entero con valor de 5
-     ------------------------------------------------------------
-     cabeza:str
-     funcion
-     ------------------------------------------------------------
-     >>>tail(Est_act, Entrada, Est_sig, Salida1 
+        '''
+Argumentos:
+Self:Diccionario dentro del cual se enceuntran los datos
+n: numero de dato entero con valor de 5
+------------------------------------------------------------
+cabeza:str
+funcion
+------------------------------------------------------------
+>>>tail(Est_act, Entrada, Est_sig, Salida1 
 0,       0,       0,       0
 0,       1,       1,       0
 1,       0,       0,       0
 1,       1,       1,       1 
-)'Est_act, Entrada, Est_sig, Salida1 
+)
+'Est_act, Entrada, Est_sig, Salida1 
 0,       0,       0,       0
 0,       1,       1,       0
 1,       0,       0,       0
 1,       1,       1,       1 
 '
 '''
-return cabeza
+        return cabeza
 pass
 import doctest
 doctest.testmod(verbose=True)
