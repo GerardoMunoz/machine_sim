@@ -286,31 +286,33 @@ class DataFrame:
     def __setitem__(indice, valor):
         pass
 
-    def head(self, n=5):
+def head(self, n=5):
 
-        '''
-Argumentos:
+    '''Argumentos:
+
+-------------------
+
 Self:Diccionario dentro del cual se enceuntran los datos
+
 n: numero de dato entero con valor de 5
 ------------------------------------------------------------
-cabeza:str
 funcion
 ------------------------------------------------------------
->>>tail(Est_act, Entrada, Est_sig, Salida1 
+>>> tail(Est_act, Entrada, Est_sig, Salida1 
 0,       0,       0,       0
 0,       1,       1,       0
 1,       0,       0,       0
-1,       1,       1,       1 
-)
-'Est_act, Entrada, Est_sig, Salida1 
-0,       0,       0,       0
+1,       1,       1,       1)
+
+' 0,       0,       0,       0
 0,       1,       1,       0
 1,       0,       0,       0
-1,       1,       1,       1 
-'
+1,       1,       1,       1 '
+
 '''
-        return cabeza
-pass
+    for column_title in list(self.data.keys()):
+        print(self.data[column_title][:n])
+
 import doctest
 doctest.testmod(verbose=True)
         for column_title in list(self.data.keys()):
