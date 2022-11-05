@@ -251,6 +251,8 @@ class DataFrame:
     def head(self, n=5):
 
     '''
+     Argumentos:
+     Self:Diccionario dentro del cual se enceuntran los datos
      
     
     '''
