@@ -2,6 +2,19 @@ seleccion_titulo=[]
 seleccion_valor=[]
 
 class Loc:
+    def loc(fila):
+    '''selecciona un nombre de la fila y lo retorna.
+    Tabla=pd.dataframe({'.index':[Est_act,Entrada,Est_sig,Salida],'est1':[0,0,0,0],'est2':[0,1,1,0],'est3':[1,0,0,0],'est4':[1,1,1,1]})
+    >>> fila=['est1']
+    [0,0,0,0]
+    >>> fila.loc=['est2']
+    [0,1,1,0]
+    '''
+    return fila
+
+import doctest
+doctest.testmod(verbose=True)
+
     def __init__(self, data, *args, **kwargs):
         self.data = data
     def __getitem__(self,n):
