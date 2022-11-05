@@ -116,8 +116,8 @@ class DataFrame:
     def __init__(self, data, index=None, *args, **kwargs):
         """
         Argumentos:
-        data: Diccionario. Las llaves son los titulos y los valores listas de igual longitud 
-        index: lista con el nombre de los indices de los renglones. Si se omite, se crea una numeración.
+        data: Diccionario. Las llaves son los títulos y los valores listas de igual longitud 
+        index: lista con el nombre de los índices de los renglones. Si se omite, se crea una numeración.
         >>> df1 = DataFrame({'Pri':[2,3,5],'2**n':[2,4,8]})
         >>> df1 #print(df)
         DataFrame({'Pri': [2, 3, 5], '2**n': [2, 4, 8]})
