@@ -1,5 +1,5 @@
-from decorador import table_decorador
-
+# Para ejecutar doctest desde mi computador tengo que ejecutar el siguiente comando
+# C:/Users/PC_GM_4/AppData/Local/Programs/Python/Python39/python.exe -m doctest -v c:/Users/PC_GM_4/machine_sim/pd_sim.py
 seleccion_titulo = []
 seleccion_valor = []
 
@@ -114,14 +114,20 @@ class Iat(object):
 class DataFrame:
 
     def __init__(self, data, index=None, *args, **kwargs):
-        """Devuelve los datos como string
-        >>> df = DataFrame({'T1':[1,2],'T2':[3,4]})
-        >>> df #print(df)
-        {'T1': [1, 2], 'T2': [3, 4]}
-        >>> df.titles
-        ['T1', 'T2'] 
-        >>> df.index
-        [0, 1]
+        """
+        Argumentos:
+        data: Diccionario. Las llaves son los titulos y los valores listas de igual longitud 
+        index: lista con el nombre de los indices de los renglones. Si se omite, se crea una numeración.
+        >>> df1 = DataFrame({'Pri':[2,3,5],'2**n':[2,4,8]})
+        >>> df1 #print(df)
+        DataFrame({'Pri': [2, 3, 5], '2**n': [2, 4, 8]})
+        >>> df1.titles
+        ['Pri', '2**n']
+        >>> df1.index
+        [0, 1, 2]
+        >>> df1 = DataFrame({'Pri':[2,3,5],'2^n':[2,4,8]}, index=['uno', 'dos', 'tres'])
+        >>> df1.index
+        ['uno', 'dos', 'tres']
         """
         
  
@@ -137,7 +143,11 @@ class DataFrame:
         # index es una lista con el nombre de los indices
         self.index = index if index else list(range(len(data[self.titles[0]])))
 
-    #@table_decorador.table
+    
+    def __repr__(self):
+
+        return 'DataFrame('+repr(self.data)+')'
+        
     def __str__(self):
 
         return str(self.data)+('\nindices: '+str(self.index) if self.index else '')
@@ -251,11 +261,13 @@ class DataFrame:
         print(c)
 
     def __neg__(self):
-        '''
-        Gerardo Muñoz
-        Crea un nuevo DataFrame con cada elemento negado
-        uso: df2 = -df 
-        '''
+        """
+        __neg__ se aplica cuando se usa el símbolo menos.
+        Devuelve un DataFrame con cada uno de los valores negados
+        >>> df1 = DataFrame({'Pri':[2,3,5],'2**n':[2,4,8]})
+        >>> -df1 
+        DataFrame({'Pri': [-2, -3, -5], '2**n': [-2, -4, -8]})
+        """
 
         # recupera el diccionario del este DataFrame
         diccionario = self.data
