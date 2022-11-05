@@ -1,5 +1,3 @@
-from decorador import table_decorador
-
 seleccion_titulo = []
 seleccion_valor = []
 
