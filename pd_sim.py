@@ -135,17 +135,14 @@ class Iloc:
 
         return DataFrame(self.diccionario)
 
-
-'''Willian Chaparro codigo 9520520
- Se define el metodo .iat
-uso: df[a,b] devuelve la fila 'a' y la columna 'b' de una matriz '''
-
-
+#@title
 class Iat(object):
+    iat_keys = []
+    iat_values = []
     '''
     ###  DOCUMENTACION .IAT ###
-    El método Pandas iat[] se utiliza para devolver datos en un marco de datos en la ubicación pasada. 
-    La ubicación pasada tiene el formato [fila, columna]. 
+    El método iat[] se utiliza para devolver datos en un marco de datos en una ubicación. 
+    La ubicación tiene el formato [fila, columna]. 
     iat[] se usa para devolver solo un valor.
     '''
     def __init__(self, data, *args, **kwargs):
@@ -153,24 +150,47 @@ class Iat(object):
     '''
     El metodo __init__  inicializa los atributos del objeto (data).
     '''
-    def __getitem__(self, nums):  # Obtiene los indices de fila y columna
+    def __getitem__(self, nums):        # Obtiene los indices de fila y columna
+        self.iat_keys = []
+        self.iat_values = []
+        for key in self.data:
+            self.iat_keys.append(key)
+        self.iat_values = list(self.data.values())
         row, column = nums
-        return self.data[row][column]    
+        return self.iat_values[row][column]
     '''
     El método __getItem__ devuelve los indices del dataframe, los incluye en la variable nums.
     de nums se saca la posición de la fila y de la columna
+    >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
+    >>> df.iat[0,2]
+    5
+    >>> df.iat[1,1]
+    4
     '''
 
     def __setitem__(self, nums, valor):
+        self.iat_keys = []
+        self.iat_values = []
+        for key in self.data:
+            self.iat_keys.append(key)
+        self.iat_values = list(self.data.values())
         row, column = nums
-        self.data[row][column] = valor
+        self.iat_values[row][column]=valor
+        return self.iat_values[row][column]
     '''
     El método __setItem__ se usa para colocar un dato en el dataframe en la fila y columna seleccionada
+    >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
+    >>> df.iat[0,2]
+    5
+    >>> df.iat[0,2]=20
+    >>> df.iat[0,2]
+    20
     '''
 
 class DataFrame:
 
     def __init__(self, data, index=None, *args, **kwargs):
+        self.iat=Iat(data)
         """Devuelve los datos como string
         >>> df = DataFrame({'T1':[1,2],'T2':[3,4]})
         >>> df #print(df)
@@ -337,12 +357,6 @@ class DataFrame:
     # Nicolas Arevalo 20202005024
     # Crear el comando copy
 
-    def iat(self, row, column):
-        a = self.data
-        b = a[row]
-        c = b[column]
-        print(c)
-
     def funcion_tail(arch, n, sep=';'):
         with open(arch) as f:
             lineas = [lineas.strip('\n') for lineas in f.readlines()]
@@ -376,12 +390,6 @@ class DataFrame:
 #
 
     # DataFrame.sort_index()
-
-    def iat(self, row, column):
-        a = self.data
-        b = a[row]
-        c = b[column]
-        print(c)
 
     def __neg__(self):
         '''
@@ -496,3 +504,6 @@ def read_csv(arch, sep=','):
 
             data[titulos[i]].append(elem)
     return DataFrame(data)
+
+import doctest
+doctest.testmod(verbose=True)
