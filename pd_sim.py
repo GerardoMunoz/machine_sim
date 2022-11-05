@@ -40,6 +40,20 @@ class Iloc:
 
     def __getitem__(self, i):
 
+        '''
+        La función con 2 listas como parámetro devuelve las filas indicadas en la primera lista
+        con las columnas indicadas en la segunda lista.
+        La función con 2 enteros dentro de una lista como parámetro devulve el dato en la posición de la fila del primer entero 
+        de la lista y en la posición de la columna del segundo número de la lista.
+        >>> df = DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
+        >>> df = df.iloc([1,3],[1,3])
+        >>> df
+        {'Entrada':[1, 1], 'Salida1':[0, 1]}
+        >>> df = df.iloc[3,1]
+        >>> df
+        {'Entrada':[1]}
+        '''
+
         self.lista_claves = []
         self.lista_valores = []
         self.lista_columnas = []
@@ -102,8 +116,7 @@ class Iloc:
                         self.lista_filas = []
                         for h in j[0]:
                             self.lista_filas.append(self.lista_columnas[h])
-                            self.diccionario[self.lista_claves[k]
-                                             ] = self.lista_filas
+                            self.diccionario[self.lista_claves[k]] = self.lista_filas
 
         except:
 
@@ -125,13 +138,13 @@ class Iloc:
                     self.lista_filas = []
                     for k in j[0]:
                         self.lista_filas.append(self.lista_columnas[k])
-                    self.diccionario[self.lista_claves[i]] = self.lista_filas
+                    self.diccionario[self.lista_claves[i]] = [self.lista_filas]
 
             if (isinstance(j[0], int)) & (isinstance(j[1], int)):  # Función 6 iloc
 
                 self.lista_columnas = self.data[self.lista_claves[j[1]]]
                 self.lista_filas = [self.lista_columnas[j[0]]]
-                self.diccionario[self.lista_claves[j[1]]] = self.lista_filas
+                self.diccionario[self.lista_claves[j[1]]] = [self.lista_filas]
 
         return DataFrame(self.diccionario)
 
@@ -166,6 +179,8 @@ class DataFrame:
         >>> df.index
         [0, 1]
         """
+        self.data=data
+        self.iloc=Iloc(self.data)
         
  
         if isinstance(data,dict):

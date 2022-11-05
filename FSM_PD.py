@@ -1,9 +1,9 @@
-import pandas as pd1
+# import pandas as pd1
 import pd_sim as pd2
 
 nombre_archivo = "FSM_dosUnosSeguidos.csv"
 
-data_frame1 = pd1.read_csv(nombre_archivo)
+# data_frame1 = pd1.read_csv(nombre_archivo)
 data_frame2 = pd2.read_csv(nombre_archivo)
 
 # print(data_frame1)
