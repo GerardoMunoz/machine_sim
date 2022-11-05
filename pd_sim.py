@@ -1,4 +1,4 @@
-
+#La función Iloc permite la selección de datos según las columnas, filas y los rangos de selección solicitados 
 from multiprocessing.resource_sharer import stop
 class Iloc:
     '''
@@ -6,7 +6,6 @@ class Iloc:
     Juan Rodriguez
     Manuel Guio
     Crea listas de selección con los elementos solicitados
-    uso: df2.iloc[3:5,0:2] =  titulo 1 : dato 3 y datos 4, titulo 2: dato 3 y dato 4
     '''
     seleccion_titulo=[]
     seleccion_valor=[]
@@ -15,8 +14,8 @@ class Iloc:
     def __init__(self,data,*args,**kwargs):
         self.data=data
     def __getitem__(self,i):
-
-
+    #Al ingresar un entero en el parámetro i se selección todos los datos en la posición i junco con su correspondiente título o kye 
+    #Al ingresar un slice en el parámetro i se enlista en j y se seleccionan los datos según los parámetro.  El primer slice define el rango de datos y el segundo slice define el rango de los títulos 
         self.lista_claves=[]
         self.lista_valores=[]
         self.lista_columnas=[]
