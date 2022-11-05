@@ -253,10 +253,27 @@ class DataFrame:
     '''
      Argumentos:
      Self:Diccionario dentro del cual se enceuntran los datos
-     n: nu
-     
-    
-    '''
+     n: numero de dato entero con valor de 5
+     ------------------------------------------------------------
+     cabeza:str
+     funcion
+     ------------------------------------------------------------
+     >>>tail(Est_act, Entrada, Est_sig, Salida1 
+0,       0,       0,       0
+0,       1,       1,       0
+1,       0,       0,       0
+1,       1,       1,       1 
+)'Est_act, Entrada, Est_sig, Salida1 
+0,       0,       0,       0
+0,       1,       1,       0
+1,       0,       0,       0
+1,       1,       1,       1 
+'
+'''
+return cabeza
+pass
+import doctest
+doctest.testmod(verbose=True)
         for column_title in list(self.data.keys()):
             print(self.data[column_title][:n])
 
