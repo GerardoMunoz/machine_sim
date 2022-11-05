@@ -253,6 +253,7 @@ class DataFrame:
     '''
      Argumentos:
      Self:Diccionario dentro del cual se enceuntran los datos
+     n: nu
      
     
     '''
