@@ -3,6 +3,15 @@ seleccion_valor = []
 
 
 class Loc:
+    '''
+    Retorna la columna de un DataFrame por medio de su etiqueta (column)
+    >>> df1 = {'Est_act': [0, 0, 1, 1], 'Entrada': [0, 1, 0, 1], 'Est_sig': [0, 1, 0, 1], 'Salida1': [0, 0, 0, 1], '.index': ['est1', 'est2', 'est3', 'est4']}
+    >>> df1['Est_act']
+    [0, 0, 1, 1]
+    >>> df1['Entrada']
+    [0, 1, 0, 1]
+    '''
+
     def __init__():
         pass
 
@@ -482,3 +491,6 @@ def read_csv(arch, sep=','):
 
             data[titulos[i]].append(elem)
     return DataFrame(data)
+
+import doctest
+doctest.testmod(verbose=True)

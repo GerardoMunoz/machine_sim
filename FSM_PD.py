@@ -7,8 +7,7 @@ data_frame1 = pd1.read_csv(nombre_archivo)
 data_frame2 = pd2.read_csv(nombre_archivo)
 
 # print(data_frame1)
-# print(data_frame2)
-
+#print(data_frame2)
 
 
 # #print(data_frame1)
@@ -17,7 +16,7 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 
 # print()
 
-# print(data_frame1.head())
+#print(data_frame1.head())
 # # error print(data_frame2.head())
 
 # print()

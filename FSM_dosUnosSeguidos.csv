@@ -1,5 +1,5 @@
-Est_act, Entrada, Est_sig, Salida1 
-0,       0,       0,       0
-0,       1,       1,       0
-1,       0,       0,       0
-1,       1,       1,       1 
+Est_act, Entrada, Est_sig, Salida1, .index
+0,       0,       0,       0, est1 
+0,       1,       1,       0, est2
+1,       0,       0,       0, est3
+1,       1,       1,       1, est4
