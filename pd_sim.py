@@ -37,7 +37,7 @@ class Iloc:
     '''
     seleccion_titulo = []
     seleccion_valor = []
-
+    
     def __init__(self, data, *args, **kwargs):
         self.data = data
 
@@ -45,16 +45,30 @@ class Iloc:
     def __getitem__(self,i):
 
         '''
-        Al ingresar un entero en el parámetro i se selección todos los datos en la posición i junto con su correspondiente título o kye 
-        Al ingresar un slice en el parámetro i se enlista en j y se seleccionan los datos según los parámetro.  El primer slice define el 
-        rango de datos y el segundo slice define el rango de los títulos 
-        >>> df=Dataframe({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
-        >>> df #print(df1)
-        Dataframe(({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]}))
-        >>> df.iloc[2]
-        ({'Est_act':[1], 'Entrada':[0], 'Est_sig':[0], 'Salida1':[0]})
-        >>> df.iloc[0:3,1:4] #Rango de datos, rango de títulos
-        {'Entrada': [0, 1, 0], 'Est_sig': [0, 1, 0], 'Salida1': [0, 0, 0]}
+            Doctest Manuel Guio 20211005061
+
+            >>> df=DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
+
+            Cale Iloc, Seleccion por posicion 
+
+            A partir de una serie de datos organizados en una tabla, la clase Iloc permite la 
+            seleccion de datos por posicion, la cual sera determinada por el usuario. Para la 
+            prueba del doc test se utilizaran los datos del archivo "FSM_dosUnosSeguidos.csv"
+
+            Argumentos: El programa puede recibir enteros, slices (ya sea con o sin limitaciones) y listas.
+
+            Iloc con argumentos de tipo slice:
+
+            1. Slice de seleccion completa para las filas y slice limitado en las columnas. Ejemplo a continuacion: 
+
+            >>> df.iloc[ : ,1:3]
+            {'Entrada': [[0, 0, 1, 1], [0, 1, 0, 1], [0, 1, 0, 1], [0, 0, 0, 1], ['ren1', 'ren2', 'ren3', 'ren4']], 'Est_sig': [[0, 0, 1, 1], [0, 1, 0, 1], [0, 1, 0, 1], [0, 0, 0, 1], ['ren1', 'ren2', 'ren3', 'ren4']]}
+
+            2. Slice limitado en las filas y seleccion completa para las columnas. Ejemplo a continuacion: 
+
+            >>> df.iloc[1:3, : ]
+            {'Est_act': [0, 1], 'Entrada': [1, 0], 'Est_sig': [1, 0], 'Salida': [0, 0], '_index': ['ren2', 'ren3']}
+
         '''
 
         self.lista_claves = []
@@ -170,15 +184,15 @@ class Iat(object):
 class DataFrame:
 
     def __init__(self, data, index=None, *args, **kwargs):
-        """Devuelve los datos como string
-        >>> df = DataFrame({'T1':[1,2],'T2':[3,4]})
-        >>> df #print(df)
-        {'T1': [1, 2], 'T2': [3, 4]}
-        >>> df.titles
-        ['T1', 'T2'] 
-        >>> df.index
-        [0, 1]
-        """
+        # """Devuelve los datos como string
+        # >>> df = DataFrame({'T1':[1,2],'T2':[3,4]})
+        # >>> df #print(df)
+        # {'T1': [1, 2], 'T2': [3, 4]}
+        # >>> df.titles
+        # ['T1', 'T2'] 
+        # >>> df.index
+        # [0, 1]
+        # """
         self.data=data
         self.iloc=Iloc(self.data)
         
