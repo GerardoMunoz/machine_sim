@@ -18,6 +18,14 @@ def read_csv(arch,sep=','):
     return DataFrame(data)
             
         
-#prueba
-#d=read_csv('datos.csv')
-#print(d.data)
+def loc(index, columns):
+    '''
+    Retorna la columna completa del titulo que se ingreso
+    >>> df= pd.DataFrame([1,2],[3,4])
+    >>> pd.DataFrame(columns=['titulo1','titulo2'])
+    >>> pd.DataFrame(index=['estado1', 'estado2'])
+    >>> ['estado1']
+    ['titulo1', 'titulo2']
+    '''
+import doctest
+doctest.testmod(verbose=True)
