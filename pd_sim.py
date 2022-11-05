@@ -142,20 +142,31 @@ uso: df[a,b] devuelve la fila 'a' y la columna 'b' de una matriz '''
 
 
 class Iat(object):
-    iat_keys = []
-    iat_values = []
     '''
     ###  DOCUMENTACION .IAT ###
     El método iat[] se utiliza para devolver datos en un marco de datos en una ubicación. 
     La ubicación tiene el formato [fila, columna]. 
     iat[] se usa para devolver solo un valor.
-    '''
+    '''    
+    iat_keys = []
+    iat_values = []
+
     def __init__(self, data, *args, **kwargs):
+        '''
+        El metodo __init__  inicializa los atributos del objeto (data).
+        '''
         self.data = data
-    '''
-    El metodo __init__  inicializa los atributos del objeto (data).
-    '''
+
     def __getitem__(self, nums):        # Metodo que obtiene los indices de fila y columna
+        '''
+        El método __getItem__ devuelve los indices del dataframe, los incluye en la variable nums.
+        de nums se saca la posición de la fila y de la columna
+        >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
+        >>> df.iat[0,2]
+        5
+        >>> df.iat[1,1]
+        4
+        '''
         self.iat_keys = []
         self.iat_values = []
         for key in self.data:
@@ -163,25 +174,9 @@ class Iat(object):
         self.iat_values = list(self.data.values())
         row, column = nums
         return self.iat_values[row][column] # Se retorna el valor en la fila y columna seleccionada
-    '''
-    El método __getItem__ devuelve los indices del dataframe, los incluye en la variable nums.
-    de nums se saca la posición de la fila y de la columna
-    >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
-    >>> df.iat[0,2]
-    5
-    >>> df.iat[1,1]
-    4
-    '''
+
 
     def __setitem__(self, nums, valor): #Metodo usado para cambiar item en el diccionario
-        self.iat_keys = []
-        self.iat_values = []
-        for key in self.data:
-            self.iat_keys.append(key)
-        self.iat_values = list(self.data.values())
-        row, column = nums
-        self.iat_values[row][column]=valor # Se asigna el nuevo valor a la posicion deseada
-        return self.iat_values[row][column]
         '''
         El método __setItem__ se usa para colocar un dato en el dataframe en la fila y columna seleccionada
         >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
@@ -191,7 +186,14 @@ class Iat(object):
         >>> df.iat[0,2]
         20
         '''
-class DataFrame:
+        self.iat_keys = []
+        self.iat_values = []
+        for key in self.data:
+            self.iat_keys.append(key)
+        self.iat_values = list(self.data.values())
+        row, column = nums
+        self.iat_values[row][column]=valor # Se asigna el nuevo valor a la posicion deseada
+        return self.iat_values[row][column]class DataFrame:
 
     def __init__(self, data, index=None, *args, **kwargs):
         self.iat=Iat(data) # Se invoca metodo .iat
