@@ -252,56 +252,6 @@ class DataFrame:
         for column_title in list(self.data.keys()):
             print(self.data[column_title][:n])
 
-    def tail(self, n=-5):
-
-        
-
-''' Argumentos:
-------------------
-
-self : Diccionario. Las llaves son los titulos y los valores listas de igual longitud
-
-n : Numero entero tendra un valor fijo de ( 5 ) 
-
---------------------------------------------------------
-
-# El numero 5 es debido a la caracteristica propia de la funcion la cual devuelve las últimas n filas del objeto.
-
--------------------------------------------------------
-
-EJEMPLO
------------------------------------------------------
-
->>> tail (Est_act, Entrada, Est_sig, Salida1 
-0,       0,       0,       0
-0,       1,       1,       0
-1,       0,       0,       0
-1,       1,       1,       1 )
-
-' 0,       0,       0,       0
-0,       1,       1,       0
-1,       0,       0,       0
-1,       1,       1,       1 '
-
->>> tail (t_1, t_2, t_3, t_4 
-0,       0,       0,       0
-0,       1,       1,       0
-1,       0,       0,       0
-1,       1,       1,       1
-0,       0,       0,       0
-0,       0,       0,       0
-0,       0,       0,       0
-´ 1,       0,       0,       0
-1,       1,       1,       1
-0,       0,       0,       0
-0,       0,       0,       0
-0,       0,       0,       0 '
-
-'''
-for column_title in list(self.data.keys()):
-         print(self.data[column_title][n:])
-
-
 
     def T(self, d):
         # print("Hola Mundo"
@@ -506,6 +456,57 @@ for column_title in list(self.data.keys()):
         if isinstance(item, slice):
             print(item)
             return nuevo_diccionario[item]
+
+def tail(self, n=5):
+
+    ''' Argumentos:
+------------------
+
+self : Diccionario. Las llaves son los titulos y los valores listas de igual longitud
+
+n : Numero entero tendra un valor fijo de ( 5 ) 
+
+--------------------------------------------------------
+
+# El numero 5 es debido a la caracteristica propia de la funcion la cual devuelve las últimas n filas del objeto.
+
+-------------------------------------------------------
+
+EJEMPLO
+-----------------------------------------------------
+
+>>> tail (Est_act, Entrada, Est_sig, Salida1 
+0,       0,       0,       0
+0,       1,       1,       0
+1,       0,       0,       0
+1,       1,       1,       1 )
+
+' 0,       0,       0,       0
+0,       1,       1,       0
+1,       0,       0,       0
+1,       1,       1,       1 '
+
+>>> tail (t_1, t_2, t_3, t_4 
+0,       0,       0,       0
+0,       1,       1,       0
+1,       0,       0,       0
+1,       1,       1,       1
+0,       0,       0,       0
+0,       0,       0,       0
+0,       0,       0,       0
+´ 1,       0,       0,       0
+1,       1,       1,       1
+0,       0,       0,       0
+0,       0,       0,       0
+0,       0,       0,       0 '
+
+'''
+
+    for column_title in list(self.data.keys()):
+        print(self.data[column_title][-n:])
+
+import doctest
+doctest.testmod(verbose=True)
 
 
 def read_csv(arch, sep=','):

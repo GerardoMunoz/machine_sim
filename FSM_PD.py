@@ -276,3 +276,5 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 # print("\nPrueba con slice en filas (izquierda), imprime todas las columnas")
 # data=data_frame2.iloc[0:2, : ]
 # print(data)
+
+
