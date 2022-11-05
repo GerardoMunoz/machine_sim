@@ -103,9 +103,27 @@ class DataFrame:
 
         diccionario = self.data
         diccionario_nuevo = {}
-        columna = diccionario.keys()
+        columna_nueva = diccionario.keys
+
+        for c in columna_nueva:
+            col = diccionario[c]
+            columna_nueva.append(c)
+
         fila_nueva = []
-        diccionario_nuevo[columna]=fila_nueva
+        diccionario_nuevo[columna_nueva]=fila_nueva
+        for d in diccionario:
+
+            datos = self.data[d]
+            fila_nueva.append(d)
+
+
+        '''
+        Argumentos:
+        Diccionario = Tabla original con filas y columnas 
+        Diccionario_nuevo = Tabla usada para adicionar datos
+        Columna_nueva = 
+
+        '''
         
 
 
