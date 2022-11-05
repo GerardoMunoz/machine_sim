@@ -1,9 +1,9 @@
-import pandas as pd1
+# import pandas as pd1
 import pd_sim as pd2
 
 nombre_archivo = "FSM_dosUnosSeguidos.csv"
 
-data_frame1 = pd1.read_csv(nombre_archivo)
+# data_frame1 = pd1.read_csv(nombre_archivo)
 data_frame2 = pd2.read_csv(nombre_archivo)
 
 # print(data_frame1)
@@ -253,9 +253,9 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 # print("\nPrueba con parámetro entero)
 # data=data_frame2.iloc[2]
 # print(data)
-# #print("\nPreuba con parámetro de 2 slices")
-# data=data_frame2.iloc[0:3,1:4] 
-# print(data)
+#print("\nPreuba con parámetro de 2 slices")
+data=data_frame2.iloc[0:3,1:4] 
+print(data)
 
 #Test función 3 y 6 iloc
 #Juan David Bello Rodríguez - 20211005028
