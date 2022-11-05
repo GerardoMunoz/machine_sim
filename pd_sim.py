@@ -48,10 +48,10 @@ class Iloc:
         >>> df = DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
         >>> df = df.iloc([1,3],[1,3])
         >>> df
-        {'Entrada':[1, 1], 'Salida1':[0, 1]}
+        {'Entrada': [1, 1], 'Salida1': [0, 1]}
         >>> df = df.iloc[3,1]
         >>> df
-        {'Entrada':[1]}
+        {'Entrada': [1]}
         '''
 
         self.lista_claves = []
@@ -198,6 +198,9 @@ class DataFrame:
     #@table_decorador.table
     def __str__(self):
         return str(self.data)+('\nindices: '+str(self.index) if self.index else '')
+
+    def __repr__(self):
+        return 'DataFrame('+repr(self.data)+')'
 
     def print_data_pretty(self, data, vertical_data=[]):
         table_string = ""
