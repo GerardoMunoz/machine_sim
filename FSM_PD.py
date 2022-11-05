@@ -1,4 +1,3 @@
-#import pandas as pd1
 import pd_sim as pd2
 
 nombre_archivo = 'FSM_dosUnosSeguidos.csv'
@@ -134,8 +133,4 @@ data_frame2.iloc[ : ,1:3]
 
 print("\nPrueba con slice en filas (izquierda), imprime todas las columnas ")
 data_frame2.iloc[1:3, : ]
-
-
-
-
 
