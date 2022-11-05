@@ -135,7 +135,6 @@ class Iloc:
 
         return DataFrame(self.diccionario)
 
-#@title
 class Iat(object):
     iat_keys = []
     iat_values = []
@@ -146,48 +145,48 @@ class Iat(object):
     iat[] se usa para devolver solo un valor.
     '''
     def __init__(self, data, *args, **kwargs):
+        '''
+        El metodo __init__  inicializa los atributos del objeto (data).
+        '''
         self.data = data
-    '''
-    El metodo __init__  inicializa los atributos del objeto (data).
-    '''
-    def __getitem__(self, nums):        # Obtiene los indices de fila y columna
+
+    def __getitem__(self, nums):        # Metodo que obtiene los indices de fila y columna
+        '''
+        El método __getItem__ devuelve los indices del dataframe, los incluye en la variable nums.
+        de nums se saca la posición de la fila y de la columna
+        >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
+        >>> df.iat[0,2]
+        5
+        >>> df.iat[1,1]
+        4
+        '''
         self.iat_keys = []
         self.iat_values = []
         for key in self.data:
             self.iat_keys.append(key)
         self.iat_values = list(self.data.values())
         row, column = nums
-        return self.iat_values[row][column]
-    '''
-    El método __getItem__ devuelve los indices del dataframe, los incluye en la variable nums.
-    de nums se saca la posición de la fila y de la columna
-    >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
-    >>> df.iat[0,2]
-    5
-    >>> df.iat[1,1]
-    4
-    '''
+        return self.iat_values[row][column] # Se retorna el valor en la fila y columna seleccionada
 
-    def __setitem__(self, nums, valor):
+
+    def __setitem__(self, nums, valor): #Metodo usado para cambiar item en el diccionario
+        '''
+        El método __setItem__ se usa para colocar un dato en el dataframe en la fila y columna seleccionada
+        >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
+        >>> df.iat[0,2]
+        5
+        >>> df.iat[0,2]=20
+        >>> df.iat[0,2]
+        20
+        '''
         self.iat_keys = []
         self.iat_values = []
         for key in self.data:
             self.iat_keys.append(key)
         self.iat_values = list(self.data.values())
         row, column = nums
-        self.iat_values[row][column]=valor
-        return self.iat_values[row][column]
-    '''
-    El método __setItem__ se usa para colocar un dato en el dataframe en la fila y columna seleccionada
-    >>> df = DataFrame({'T1':[1,2,5],'T2':[3,4,6]})
-    >>> df.iat[0,2]
-    5
-    >>> df.iat[0,2]=20
-    >>> df.iat[0,2]
-    20
-    '''
-
-class DataFrame:
+        self.iat_values[row][column]=valor # Se asigna el nuevo valor a la posicion deseada
+        return self.iat_values[row][column]class DataFrame:
 
     def __init__(self, data, index=None, *args, **kwargs):
         self.iat=Iat(data)
