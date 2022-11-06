@@ -1,3 +1,7 @@
+
+#La función Iloc permite la selección de datos según las columnas, filas y los rangos de selección solicitados 
+from multiprocessing.resource_sharer import stop
+
 seleccion_titulo = []
 seleccion_valor = []
 
@@ -18,7 +22,9 @@ class Loc:
         #     pass
 
 
+
 class Iloc:
+    
 
     lista_claves = []
     lista_valores = []
@@ -30,7 +36,6 @@ class Iloc:
     Juan Rodriguez
     Manuel Guio
     Crea listas de selección con los elementos solicitados
-    uso: df2.iloc[3:5,0:2] =  titulo 1 : dato 3 y datos 4, titulo 2: dato 3 y dato 4
     '''
     seleccion_titulo = []
     seleccion_valor = []
@@ -38,20 +43,30 @@ class Iloc:
     def __init__(self, data, *args, **kwargs):
         self.data = data
 
-    def __getitem__(self, i):
+
+    def __getitem__(self,i):
 
         '''
+        Al ingresar un entero en el parámetro i se selección todos los datos en la posición i junto con su correspondiente título o kye 
+        Al ingresar un slice en el parámetro i se enlista en j y se seleccionan los datos según los parámetro.  El primer slice define el 
+        rango de datos y el segundo slice define el rango de los títulos 
+        >>> df=DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
+        >>> df #print(df1)
+        DataFrame({'Est_act': [0, 0, 1, 1], 'Entrada': [0, 1, 0, 1], 'Est_sig': [0, 1, 0, 1], 'Salida1': [0, 0, 0, 1]})
+        >>> df.iloc[2]
+        DataFrame({'Est_act': [1], 'Entrada': [0], 'Est_sig': [0], 'Salida1': [0]})
+        >>> df.iloc[0:3,1:4] #Rango de datos, rango de títulos
+        DataFrame({'Entrada': [0, 1, 0], 'Est_sig': [0, 1, 0], 'Salida1': [0, 0, 0]})
+
         La función con 2 listas como parámetro devuelve las filas indicadas en la primera lista
         con las columnas indicadas en la segunda lista.
         La función con 2 enteros dentro de una lista como parámetro devulve el dato en la posición de la fila del primer entero 
         de la lista y en la posición de la columna del segundo número de la lista.
         >>> df = DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
-        >>> df = df.iloc([1,3],[1,3])
-        >>> df
-        {'Entrada': [1, 1], 'Salida1': [0, 1]}
-        >>> df = df.iloc[3,1]
-        >>> df
-        {'Entrada': [1]}
+        >>> df.iloc[[1,3],[1,3]]
+        DataFrame({'Entrada': [1, 1], 'Salida1': [0, 1]})
+        >>> df.iloc[3,1]
+        DataFrame({'Entrada': [1]})
         '''
 
         self.lista_claves = []
@@ -75,8 +90,7 @@ class Iloc:
 
                 for k in range(j[1].start, j[1].stop):
                     for h in range(j[1].start, j[1].stop):
-                        self.diccionario[self.lista_claves[k]
-                                         ] = self.data[self.lista_claves[k]]
+                        self.diccionario[self.lista_claves[k]] = self.data[self.lista_claves[k]]
 
             if (isinstance(j[0], slice)) & (j[1].start == None) & (j[1].stop == None) & (j[1].step == None):
                 for k in range(len(self.lista_claves)):
@@ -84,8 +98,7 @@ class Iloc:
                     self.lista_filas = []
                     for h in range(j[0].start, j[0].stop):
                         self.lista_filas.append(self.lista_columnas[h])
-                        self.diccionario[self.lista_claves[k]
-                                         ] = self.lista_filas
+                        self.diccionario[self.lista_claves[k]] = self.lista_filas
 
             if (isinstance(j[0], slice)) & (j[1].start != None) & (j[1].stop != None):
                 l = 0
@@ -105,7 +118,6 @@ class Iloc:
                                 self.seleccion_valor.append(valores[g])
                             aux = list(self.seleccion_valor)
                             self.diccionario[k] = aux
-
                             self.seleccion_valor.clear()
                         l = l+1
 
@@ -129,7 +141,7 @@ class Iloc:
                     valores = self.data[j]
                     self.seleccion_titulo.append(j)
                     self.seleccion_valor.append(valores[i])
-                    self.diccionario[j] = valores[i]
+                    self.diccionario[j] =[valores[i]]
 
             if (isinstance(j[0], list) & isinstance(j[1], list)):  # Función 3 iloc
 
@@ -138,13 +150,13 @@ class Iloc:
                     self.lista_filas = []
                     for k in j[0]:
                         self.lista_filas.append(self.lista_columnas[k])
-                    self.diccionario[self.lista_claves[i]] = [self.lista_filas]
+                    self.diccionario[self.lista_claves[i]] = self.lista_filas
 
             if (isinstance(j[0], int)) & (isinstance(j[1], int)):  # Función 6 iloc
 
                 self.lista_columnas = self.data[self.lista_claves[j[1]]]
                 self.lista_filas = [self.lista_columnas[j[0]]]
-                self.diccionario[self.lista_claves[j[1]]] = [self.lista_filas]
+                self.diccionario[self.lista_claves[j[1]]] = self.lista_filas
 
         return DataFrame(self.diccionario)
 
@@ -170,12 +182,13 @@ class Iat(object):
 class DataFrame:
 
     def __init__(self, data, index=None, *args, **kwargs):
+
         """Devuelve los datos como string
         >>> df = DataFrame({'T1':[1,2],'T2':[3,4]})
         >>> df #print(df)
-        {'T1': [1, 2], 'T2': [3, 4]}
+        DataFrame({'T1': [1, 2], 'T2': [3, 4]})
         >>> df.titles
-        ['T1', 'T2'] 
+        ['T1', 'T2']
         >>> df.index
         [0, 1]
         """
@@ -192,15 +205,12 @@ class DataFrame:
 
         self.titles = list(data.keys())
 
-        # index es una lista con el nombre de los indices
+        #index es una lista con el nombre de los indices
         self.index = index if index else list(range(len(data[self.titles[0]])))
-
+        
     #@table_decorador.table
     def __str__(self):
         return str(self.data)+('\nindices: '+str(self.index) if self.index else '')
-
-    def __repr__(self):
-        return 'DataFrame('+repr(self.data)+')'
 
     def print_data_pretty(self, data, vertical_data=[]):
         table_string = ""
@@ -265,6 +275,9 @@ class DataFrame:
 
     def __setitem__(indice, valor):
         pass
+    def __repr__(self):
+
+        return 'DataFrame('+repr(self.data)+')'
 
     def head(self, n=5):
         for column_title in list(self.data.keys()):
@@ -312,21 +325,7 @@ class DataFrame:
 
                 l = l+1
 
-    # Realizar lecturas según su posición
 
-    def iloc(self, i):
-        if isinstance(i, slice):
-            print("lo logramos")
-        if isinstance(i, int):
-            seleccion_titulo.clear()
-            seleccion_valor.clear()
-            titulos = self.data.keys()
-            for j in titulos:
-                valores = self.data[j]
-                seleccion_titulo.append(j)
-                print("\nTitulo: ", j)
-                seleccion_valor.append(valores[i])
-                print("Dato solicitado: ", valores[i])
 
     # 20202005024
     # Crear el comando que agrege una nueva columna
