@@ -37,7 +37,7 @@ class Iloc:
     '''
     seleccion_titulo = []
     seleccion_valor = []
-    
+
     def __init__(self, data, *args, **kwargs):
         self.data = data
 
@@ -48,6 +48,8 @@ class Iloc:
             Doctest Manuel Guio 20211005061
 
             >>> df=DataFrame({'Est_act':[0,0,1,1], 'Entrada':[0,1,0,1], 'Est_sig':[0,1,0,1], 'Salida1':[0,0,0,1]})
+            >>> df #print(df1)
+            DataFrame({'Est_act': [0, 0, 1, 1], 'Entrada': [0, 1, 0, 1], 'Est_sig': [0, 1, 0, 1], 'Salida1': [0, 0, 0, 1]})
 
             Cale Iloc, Seleccion por posicion 
 
@@ -62,14 +64,14 @@ class Iloc:
             1. Slice de seleccion completa para las filas y slice limitado en las columnas. Ejemplo a continuacion: 
 
             >>> df.iloc[ : ,1:3]
-            {'Entrada': [[0, 0, 1, 1], [0, 1, 0, 1], [0, 1, 0, 1], [0, 0, 0, 1], ['ren1', 'ren2', 'ren3', 'ren4']], 'Est_sig': [[0, 0, 1, 1], [0, 1, 0, 1], [0, 1, 0, 1], [0, 0, 0, 1], ['ren1', 'ren2', 'ren3', 'ren4']]}
+            DataFrame({'Entrada': [0, 1, 0, 1], 'Est_sig': [0, 1, 0, 1]})
 
             2. Slice limitado en las filas y seleccion completa para las columnas. Ejemplo a continuacion: 
 
             >>> df.iloc[1:3, : ]
-            {'Est_act': [0, 1], 'Entrada': [1, 0], 'Est_sig': [1, 0], 'Salida': [0, 0], '_index': ['ren2', 'ren3']}
+            DataFrame({'Est_act': [0, 1], 'Entrada': [1, 0], 'Est_sig': [1, 0], 'Salida1': [0, 0]})
 
-        '''
+        '''        
 
         self.lista_claves = []
         self.lista_valores = []
@@ -276,6 +278,9 @@ class DataFrame:
 
     def __setitem__(indice, valor):
         pass
+    def __repr__(self):
+
+        return 'DataFrame('+repr(self.data)+')'
 
     def head(self, n=5):
         for column_title in list(self.data.keys()):
@@ -323,21 +328,7 @@ class DataFrame:
 
                 l = l+1
 
-    # Realizar lecturas según su posición
 
-    def iloc(self, i):
-        if isinstance(i, slice):
-            print("lo logramos")
-        if isinstance(i, int):
-            seleccion_titulo.clear()
-            seleccion_valor.clear()
-            titulos = self.data.keys()
-            for j in titulos:
-                valores = self.data[j]
-                seleccion_titulo.append(j)
-                print("\nTitulo: ", j)
-                seleccion_valor.append(valores[i])
-                print("Dato solicitado: ", valores[i])
 
     # 20202005024
     # Crear el comando que agrege una nueva columna
@@ -511,3 +502,5 @@ def read_csv(arch, sep=','):
 
             data[titulos[i]].append(elem)
     return DataFrame(data)
+
+
