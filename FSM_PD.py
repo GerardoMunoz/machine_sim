@@ -249,11 +249,11 @@ data_frame2 = pd2.read_csv(nombre_archivo)
 
 #Test función 1 y 2 iloc
 #Oscar David Poblador Parra- 20211005116
-# print("\nIloc selección entero y slice - Oscar Poblador 20211005116")
-# print("\nPrueba con parámetro entero)
-# data=data_frame2.iloc[2]
-# print(data)
-#print("\nPreuba con parámetro de 2 slices")
+print("\nIloc selección entero y slice - Oscar Poblador 20211005116")
+print("\nPrueba con parámetro entero")
+data=data_frame2.iloc[2]
+print(data)
+print("\nPreuba con parámetro de 2 slices")
 data=data_frame2.iloc[0:3,1:4] 
 print(data)
 

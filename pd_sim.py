@@ -53,9 +53,9 @@ class Iloc:
         >>> df #print(df1)
         DataFrame({'Est_act': [0, 0, 1, 1], 'Entrada': [0, 1, 0, 1], 'Est_sig': [0, 1, 0, 1], 'Salida1': [0, 0, 0, 1]})
         >>> df.iloc[2]
-        ({'Est_act':[1], 'Entrada':[0], 'Est_sig':[0], 'Salida1':[0]})
+        DataFrame({'Est_act': [1], 'Entrada': [0], 'Est_sig': [0], 'Salida1': [0]})
         >>> df.iloc[0:3,1:4] #Rango de datos, rango de títulos
-        {'Entrada': [0, 1, 0], 'Est_sig': [0, 1, 0], 'Salida1': [0, 0, 0]}
+        DataFrame({'Entrada': [0, 1, 0], 'Est_sig': [0, 1, 0], 'Salida1': [0, 0, 0]})
         '''
 
         self.lista_claves = []
